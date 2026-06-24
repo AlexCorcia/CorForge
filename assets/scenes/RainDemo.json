@@ -1,0 +1,911 @@
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "far": 420.0,
+          "fov": 60.0,
+          "near": 0.20000000298023224,
+          "type": "Camera"
+        },
+        {
+          "moveSpeed": 6.0,
+          "sensitivity": 0.10000000149011612,
+          "type": "FlyController"
+        }
+      ],
+      "name": "MainCamera",
+      "transform": {
+        "position": [
+          8.999178886413574,
+          2.520160436630249,
+          6.9823198318481445
+        ],
+        "rotation": [
+          -14.60001277923584,
+          -42.80012893676758,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "ground": [
+            0.05000000074505806,
+            0.05000000074505806,
+            0.05999999865889549
+          ],
+          "horizon": [
+            0.1599999964237213,
+            0.17000000178813934,
+            0.20000000298023224
+          ],
+          "image": "None",
+          "intensity": 0.4000000059604645,
+          "type": "Sky",
+          "zenith": [
+            0.03999999910593033,
+            0.05000000074505806,
+            0.07999999821186066
+          ]
+        }
+      ],
+      "name": "Storm Sky",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            0.46000000834465027,
+            0.6000000238418579
+          ],
+          "inner": 18.0,
+          "intensity": 0.5,
+          "lightType": 0,
+          "outer": 26.0,
+          "range": 40.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Moonlight",
+      "transform": {
+        "position": [
+          0.0,
+          12.0,
+          0.0
+        ],
+        "rotation": [
+          -58.0,
+          20.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.0,
+          "emitDir": [
+            0.1599999964237213,
+            -1.0,
+            0.05999999865889549
+          ],
+          "emitRadius": 13.0,
+          "enabled": true,
+          "endColor": [
+            0.6000000238418579,
+            0.699999988079071,
+            0.949999988079071,
+            0.44999998807907104
+          ],
+          "endSize": 0.05000000074505806,
+          "flickerHz": 14.0,
+          "gravity": -14.0,
+          "groundY": 0.03999999910593033,
+          "lifetime": 1.7000000476837158,
+          "lifetimeVar": 0.20000000298023224,
+          "maxParticles": 9000,
+          "mode": 0,
+          "rate": 1700.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 2.0,
+          "splashOnGround": true,
+          "spread": 1.5,
+          "startColor": [
+            0.6000000238418579,
+            0.699999988079071,
+            0.949999988079071,
+            0.6000000238418579
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 24.0,
+          "stretch": 0.07000000029802322,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Heavy Rain",
+      "transform": {
+        "position": [
+          0.0,
+          15.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.800000011920929,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 10.0,
+          "enabled": true,
+          "endColor": [
+            0.44999998807907104,
+            0.5,
+            0.550000011920929,
+            0.0
+          ],
+          "endSize": 4.0,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "groundY": 0.0,
+          "lifetime": 7.0,
+          "lifetimeVar": 1.5,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 24.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.20000000298023224,
+          "splashOnGround": false,
+          "spread": 80.0,
+          "startColor": [
+            0.5,
+            0.550000011920929,
+            0.6000000238418579,
+            0.10000000149011612
+          ],
+          "startSize": 2.5,
+          "startSpeed": 0.30000001192092896,
+          "stretch": 0.0,
+          "swirl": 0.30000001192092896,
+          "type": "Particles"
+        }
+      ],
+      "name": "Drizzle Mist",
+      "transform": {
+        "position": [
+          0.0,
+          0.6000000238418579,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            0.5,
+            0.75
+          ],
+          "inner": 18.0,
+          "intensity": 3.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 16.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Fill Light",
+      "transform": {
+        "position": [
+          0.0,
+          5.0,
+          6.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Terrain",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.2963254451751709,
+            0.4215686321258545,
+            0.2562476098537445
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "baseDepth": 7.0,
+          "collider": true,
+          "donut": false,
+          "edgeFalloff": 0.3499999940395355,
+          "forestScale": 14.0,
+          "frequency": 0.05000000074505806,
+          "gain": 0.5,
+          "grassColor": [
+            0.2963254451751709,
+            0.4215686321258545,
+            0.2562476098537445
+          ],
+          "heightScale": 4.599999904632568,
+          "island": true,
+          "lacunarity": 2.0,
+          "lowPoly": true,
+          "octaves": 6,
+          "propScale": 1.0,
+          "resolution": 96,
+          "ringRadius": 0.550000011920929,
+          "ringWidth": 0.3199999928474426,
+          "rockCount": 194,
+          "scatter": true,
+          "seed": 1337,
+          "size": 58.0,
+          "slab": false,
+          "treeColor": [
+            0.18000000715255737,
+            0.41999998688697815,
+            0.18000000715255737
+          ],
+          "treeCount": 0,
+          "treeMinHeight": 1.2000000476837158,
+          "type": "Terrain",
+          "waterLevel": 0.0
+        }
+      ],
+      "name": "Terrain",
+      "transform": {
+        "position": [
+          0.0,
+          -2.477055311203003,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Plane",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.07999999821186066,
+            0.4000000059604645,
+            0.8500000238418579
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.8999999761581421,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "calm": 0.0,
+          "color": [
+            0.07999999821186066,
+            0.4000000059604645,
+            0.8500000238418579
+          ],
+          "opacity": 0.8999999761581421,
+          "round": false,
+          "splash": false,
+          "splashAmount": 1.0,
+          "splashThreshold": 1.2000000476837158,
+          "type": "Water"
+        }
+      ],
+      "name": "Water",
+      "transform": {
+        "position": [
+          0.0,
+          -0.7339975833892822,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          200.0,
+          1.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "chest",
+          "modelPart": -1,
+          "modelSource": "chest",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.800000011920929,
+            0.800000011920929,
+            0.8199999928474426
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "halfExtents": [
+            1.0,
+            0.8999999761581421,
+            1.0
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 1.0,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          -0.6283289194107056,
+          1.0955007076263428,
+          2.470121383666992
+        ],
+        "rotation": [
+          -0.0,
+          54.3125,
+          0.0
+        ],
+        "scale": [
+          0.9999995231628418,
+          1.0,
+          0.9999995231628418
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "chest",
+          "modelPart": -1,
+          "modelSource": "chest",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.800000011920929,
+            0.800000011920929,
+            0.8199999928474426
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "halfExtents": [
+            1.0,
+            0.8999999761581421,
+            1.0
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 1.0,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          4.794777870178223,
+          1.0955365896224976,
+          -1.4151761531829834
+        ],
+        "rotation": [
+          -0.0,
+          0.7722870707511902,
+          0.0
+        ],
+        "scale": [
+          0.9999992251396179,
+          1.0,
+          0.9999992251396179
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "chest",
+          "modelPart": -1,
+          "modelSource": "chest",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "halfExtents": [
+            1.0,
+            0.8999999761581421,
+            1.0
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 1.0,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          1.1983271837234497,
+          1.0123029947280884,
+          -0.5897963047027588
+        ],
+        "rotation": [
+          -0.0,
+          30.043394088745117,
+          0.0
+        ],
+        "scale": [
+          0.9999992847442627,
+          1.0,
+          0.9999992847442627
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Plane",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Empty",
+      "transform": {
+        "position": [
+          0.0,
+          -1.9946260452270508,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          200.0,
+          1.0,
+          1200.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "BoatModel",
+          "modelPart": -1,
+          "modelSource": "BoatModel",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.3480392098426819,
+            0.21496538817882538,
+            0.0
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "drag": 7.849999904632568,
+          "strength": 60.0,
+          "type": "Buoyancy"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 0.800000011920929,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "center": [
+            0.0,
+            -1.4901161193847656e-08,
+            0.0
+          ],
+          "halfExtents": [
+            0.43596532940864563,
+            0.19269053637981415,
+            1.0
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 1.0,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          -17.840560913085938,
+          -0.4293214678764343,
+          0.12640203535556793
+        ],
+        "rotation": [
+          -6.341506481170654,
+          37.38851547241211,
+          -1.8521660566329956
+        ],
+        "scale": [
+          0.999999463558197,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.800000011920929,
+            0.800000011920929,
+            0.8199999928474426
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 1.0,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "circular": true,
+          "distance": 9.449999809265137,
+          "enabled": false,
+          "origin": [
+            -0.009210348129272461,
+            4.271119117736816,
+            8.138874053955078
+          ],
+          "smooth": false,
+          "speed": 7.050000190734863,
+          "type": "PhysicsMover"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": false,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 1.690000057220459,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          3.1285805702209473,
+          4.271119117736816,
+          7.602726936340332
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          2.0,
+          2.0,
+          2.0
+        ]
+      }
+    }
+  ],
+  "post": {
+    "bloom": true,
+    "bloomIntensity": 0.699999988079071,
+    "bloomThreshold": 0.8500000238418579,
+    "enabled": true,
+    "exposure": 1.0499999523162842,
+    "fog": true,
+    "fogColor": [
+      0.07999999821186066,
+      0.09000000357627869,
+      0.11999999731779099
+    ],
+    "fogDensity": 0.09799999743700027,
+    "ssao": true,
+    "ssaoRadius": 0.6000000238418579,
+    "ssaoStrength": 1.100000023841858,
+    "vignette": 0.3400000035762787
+  }
+}

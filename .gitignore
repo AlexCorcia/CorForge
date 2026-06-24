@@ -1,0 +1,21 @@
+# Build output
+/build/
+/out/
+*.exe
+*.pdb
+*.ilk
+
+# Heavy model-converter working files (raw .blend/.fbx/.3ds inputs; the engine
+# loads its models from assets/, not from here). ~300 MB, not part of the engine.
+/scripts/MODELS/
+
+# IDE / local agent config
+.vs/
+.vscode/
+*.user
+.claude/
+
+# CMake (only ever generated under build/, but ignore stray copies too)
+CMakeCache.txt
+CMakeFiles/
+compile_commands.json

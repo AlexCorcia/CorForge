@@ -1,0 +1,2080 @@
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "far": 100.0,
+          "fov": 60.0,
+          "near": 0.10000000149011612,
+          "type": "Camera"
+        },
+        {
+          "moveSpeed": 3.0,
+          "sensitivity": 0.10000000149011612,
+          "type": "FlyController"
+        }
+      ],
+      "name": "MainCamera",
+      "transform": {
+        "position": [
+          0.2950606048107147,
+          11.652188301086426,
+          -11.641541481018066
+        ],
+        "rotation": [
+          -44.000022888183594,
+          -184.44837951660156,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Plane",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0077133867889642715,
+            0.11107306182384491,
+            0.5245097875595093
+          ],
+          "albedoMap": "None",
+          "ambient": 0.9750000238418579,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": true,
+          "reflective": true,
+          "reflectivity": 0.5799999833106995,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            8.0,
+            8.0
+          ]
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.0,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 2,
+          "type": "Collider"
+        }
+      ],
+      "name": "Floor",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          0.20000000298023224,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.7200000286102295,
+            0.36000001430511475,
+            0.3400000035762787
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.2930000126361847,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Wall West",
+      "transform": {
+        "position": [
+          -6.099999904632568,
+          3.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.20000000298023224,
+          6.400000095367432,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.36000001430511475,
+            0.44999998807907104,
+            0.7200000286102295
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.17000000178813934,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Wall East",
+      "transform": {
+        "position": [
+          6.099999904632568,
+          3.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.20000000298023224,
+          6.400000095367432,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.4000000059604645,
+            0.6000000238418579,
+            0.41999998688697815
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.2590000033378601,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Wall North",
+      "transform": {
+        "position": [
+          0.0,
+          3.0,
+          -6.099999904632568
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          6.400000095367432,
+          0.20000000298023224
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.7200000286102295,
+            0.6600000262260437,
+            0.44999998807907104
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.19699999690055847,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Wall South",
+      "transform": {
+        "position": [
+          0.0,
+          3.0,
+          6.099999904632568
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          6.400000095367432,
+          0.20000000298023224
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 0.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 16.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Warm Point Light",
+      "transform": {
+        "position": [
+          -3.5,
+          4.599999904632568,
+          -3.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.3499999940395355,
+            0.550000011920929,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 0.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 16.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Cool Point Light",
+      "transform": {
+        "position": [
+          3.5,
+          4.599999904632568,
+          3.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.5
+          ],
+          "inner": 18.0,
+          "intensity": 0.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 14.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Green Point Light",
+      "transform": {
+        "position": [
+          3.5999999046325684,
+          2.0,
+          -3.5999999046325684
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -0.6691712737083435,
+          0.29498571157455444,
+          -0.5445128679275513
+        ],
+        "rotation": [
+          0.5569330453872681,
+          -144.62225341796875,
+          24.280134201049805
+        ],
+        "scale": [
+          0.5,
+          0.49999281764030457,
+          0.4999998211860657
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            0.20000000298023224,
+            0.20000000298023224
+          ]
+        },
+        {
+          "color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.800000190734863,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        },
+        {
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "circular": true,
+          "distance": 5.0,
+          "enabled": true,
+          "origin": [
+            0.175062894821167,
+            1.1183924674987793,
+            4.7862043380737305
+          ],
+          "smooth": false,
+          "speed": 10.0,
+          "type": "PhysicsMover"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": false,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          -4.292219161987305,
+          1.1183924674987793,
+          2.031953811645508
+        ],
+        "rotation": [
+          0.28947317600250244,
+          -65.4764175415039,
+          90.00263214111328
+        ],
+        "scale": [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          0.8908630609512329,
+          0.29498571157455444,
+          -4.190335750579834
+        ],
+        "rotation": [
+          -18.11823081970215,
+          -174.31304931640625,
+          20.600725173950195
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          0.9794700145721436,
+          0.29498571157455444,
+          1.3481173515319824
+        ],
+        "rotation": [
+          41.3746452331543,
+          133.77613830566406,
+          31.286720275878906
+        ],
+        "scale": [
+          0.5,
+          0.49999281764030457,
+          0.4999998211860657
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          4.6331400871276855,
+          0.29498571157455444,
+          4.769506454467773
+        ],
+        "rotation": [
+          56.00838088989258,
+          146.46145629882813,
+          15.099907875061035
+        ],
+        "scale": [
+          0.5,
+          0.49999281764030457,
+          0.4999998211860657
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -5.430044651031494,
+          0.30495402216911316,
+          3.7127697467803955
+        ],
+        "rotation": [
+          7.500489711761475,
+          118.68134307861328,
+          -162.5540008544922
+        ],
+        "scale": [
+          0.5,
+          0.49999281764030457,
+          0.4999998211860657
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          2.1093239784240723,
+          0.29498571157455444,
+          -5.70033073425293
+        ],
+        "rotation": [
+          47.123470306396484,
+          -148.79214477539063,
+          48.998531341552734
+        ],
+        "scale": [
+          0.5,
+          0.49999281764030457,
+          0.4999998211860657
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -5.585000991821289,
+          0.4149857759475708,
+          -5.254377365112305
+        ],
+        "rotation": [
+          -31.672121047973633,
+          -101.68408203125,
+          -78.47563934326172
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000000476837158,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          5.360231399536133,
+          0.29498571157455444,
+          -4.021364212036133
+        ],
+        "rotation": [
+          5.70405912399292,
+          -159.05035400390625,
+          -82.1741714477539
+        ],
+        "scale": [
+          0.5,
+          0.49999281764030457,
+          0.4999998211860657
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -4.703075408935547,
+          0.4149857759475708,
+          -5.580819606781006
+        ],
+        "rotation": [
+          54.40437698364258,
+          -158.744384765625,
+          109.4476089477539
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000000476837158,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -5.449169635772705,
+          0.4149857759475708,
+          -4.413142204284668
+        ],
+        "rotation": [
+          -46.4653205871582,
+          0.5664800405502319,
+          66.51712799072266
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000000476837158,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -4.265455722808838,
+          0.4149857759475708,
+          -4.781134605407715
+        ],
+        "rotation": [
+          49.91278839111328,
+          -57.74017333984375,
+          173.2975311279297
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000001072883606,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -4.159114837646484,
+          0.4149857759475708,
+          4.805343151092529
+        ],
+        "rotation": [
+          -16.75882911682129,
+          87.89265441894531,
+          50.050846099853516
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000000476837158,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          5.517787933349609,
+          0.4149857759475708,
+          -5.581761360168457
+        ],
+        "rotation": [
+          8.36992359161377,
+          -159.17559814453125,
+          2.8288841247558594
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000000476837158,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          4.452818393707275,
+          0.4149857759475708,
+          -5.519514560699463
+        ],
+        "rotation": [
+          -4.704347610473633,
+          50.26369094848633,
+          -91.82600402832031
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000000476837158,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.1850000023841858,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -5.480842590332031,
+          0.41423556208610535,
+          4.468801975250244
+        ],
+        "rotation": [
+          29.556610107421875,
+          1.8630094528198242,
+          -41.38518142700195
+        ],
+        "scale": [
+          0.7000001072883606,
+          0.7000000476837158,
+          0.699999988079071
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.9411764740943909,
+            0.0
+          ],
+          "albedoMap": "White",
+          "ambient": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 1.0,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "color": [
+            1.0,
+            1.0,
+            0.0
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 5.0,
+          "type": "Light"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -3.00390887260437,
+          0.5349857211112976,
+          -2.008556842803955
+        ],
+        "rotation": [
+          -14.054189682006836,
+          172.10401916503906,
+          -79.13982391357422
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.8999999165534973,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.9411764740943909,
+            0.0
+          ],
+          "albedoMap": "White",
+          "ambient": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 1.0,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "color": [
+            1.0,
+            1.0,
+            0.0
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 5.0,
+          "type": "Light"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          5.465000629425049,
+          0.5349857211112976,
+          2.622584104537964
+        ],
+        "rotation": [
+          26.468162536621094,
+          -57.10449981689453,
+          96.51404571533203
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.8999999165534973,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.9411764740943909,
+            0.0
+          ],
+          "albedoMap": "White",
+          "ambient": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 1.0,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "color": [
+            1.0,
+            1.0,
+            0.0
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 5.0,
+          "type": "Light"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -0.39236772060394287,
+          0.5349857211112976,
+          4.993396282196045
+        ],
+        "rotation": [
+          46.94857406616211,
+          -44.94707107543945,
+          -26.717817306518555
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.8999999165534973,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cloth",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "content",
+          "ambient": 0.07999999821186066,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 1.0,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Cloth",
+      "transform": {
+        "position": [
+          0.09514731168746948,
+          4.825856685638428,
+          0.3202565908432007
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.9411764740943909,
+            0.0
+          ],
+          "albedoMap": "White",
+          "ambient": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 1.0,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "color": [
+            1.0,
+            1.0,
+            0.0
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 5.0,
+          "type": "Light"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6000000238418579,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -5.259943008422852,
+          0.5590320229530334,
+          5.38240385055542
+        ],
+        "rotation": [
+          -50.02225875854492,
+          71.5941390991211,
+          -3.966740846633911
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.9000002145767212,
+          0.8999999761581421
+        ]
+      }
+    }
+  ]
+}

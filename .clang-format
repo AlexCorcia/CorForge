@@ -1,0 +1,31 @@
+# CorForge code style.
+#   - Tabs for indentation
+#   - Allman braces (opening brace on its own line)
+#   - Pointers/references bound to the name (Type *p, Type &r)
+# (snake_case naming is enforced separately via clang-tidy readability-identifier-naming.)
+---
+Language: Cpp
+BasedOnStyle: LLVM
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: ForIndentation
+ContinuationIndentWidth: 4
+
+ColumnLimit: 100
+
+BreakBeforeBraces: Allman
+PointerAlignment: Right
+ReferenceAlignment: Right
+
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+
+AccessModifierOffset: -4
+NamespaceIndentation: None
+SortIncludes: false
+FixNamespaceComments: true
+SpaceAfterTemplateKeyword: false

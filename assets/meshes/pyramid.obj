@@ -1,0 +1,14 @@
+# Square-based pyramid (unit-ish, centered on its base)
+v -0.6 0.0 -0.6
+v  0.6 0.0 -0.6
+v  0.6 0.0  0.6
+v -0.6 0.0  0.6
+v  0.0 1.0  0.0
+# base
+f 4 3 2
+f 4 2 1
+# sides
+f 1 2 5
+f 2 3 5
+f 3 4 5
+f 4 1 5

@@ -1,0 +1,104 @@
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.800000011920929,
+            0.800000011920929,
+            0.8199999928474426
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 1.0,
+          "roughness": 0.0,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "circular": true,
+          "distance": 9.449999809265137,
+          "enabled": true,
+          "origin": [
+            -0.009210348129272461,
+            4.271119117736816,
+            8.138874053955078
+          ],
+          "smooth": false,
+          "speed": 7.050000190734863,
+          "type": "PhysicsMover"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": false,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "halfExtents": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 1.690000057220459,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          -9.162948608398438,
+          4.271119117736816,
+          -3.658801794052124
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          2.0,
+          2.0,
+          2.0
+        ]
+      }
+    }
+  ],
+  "prefab": true
+}

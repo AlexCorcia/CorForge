@@ -1,0 +1,976 @@
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "far": 100.0,
+          "fov": 60.0,
+          "near": 0.10000000149011612,
+          "type": "Camera"
+        },
+        {
+          "moveSpeed": 3.0,
+          "sensitivity": 0.10000000149011612,
+          "type": "FlyController"
+        }
+      ],
+      "name": "MainCamera",
+      "transform": {
+        "position": [
+          5.600794792175293,
+          5.911169052124023,
+          4.820746421813965
+        ],
+        "rotation": [
+          -27.300065994262695,
+          -47.30026626586914,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.550000011920929,
+            0.5600000023841858,
+            0.6000000238418579
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.18000000715255737,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.550000011920929,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            8.0,
+            8.0
+          ]
+        }
+      ],
+      "name": "Floor",
+      "transform": {
+        "position": [
+          0.0,
+          -0.10000000149011612,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          0.20000000298023224,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.04656863212585449,
+            0.058210812509059906,
+            0.09313726425170898
+          ],
+          "albedoMap": "None",
+          "ambient": 0.20000000298023224,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.421999990940094,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.699999988079071,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Ceiling",
+      "transform": {
+        "position": [
+          0.0,
+          6.099999904632568,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          0.20000000298023224,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.7058823108673096,
+            0.18466581404209137,
+            0.15570931136608124
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Wall West",
+      "transform": {
+        "position": [
+          -6.099999904632568,
+          3.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.20000000298023224,
+          6.400000095367432,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.1351403445005417,
+            0.28272780776023865,
+            0.7254902124404907
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Wall East",
+      "transform": {
+        "position": [
+          6.099999904632568,
+          3.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.20000000298023224,
+          6.400000095367432,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.39107558131217957,
+            0.8578431606292725,
+            0.43775227665901184
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Wall North",
+      "transform": {
+        "position": [
+          0.0,
+          3.0,
+          -6.099999904632568
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          6.400000095367432,
+          0.20000000298023224
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.8039215803146362,
+            0.6532957553863525,
+            0.12610533833503723
+          ],
+          "albedoMap": "None",
+          "ambient": 0.1599999964237213,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.8500000238418579,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Wall South",
+      "transform": {
+        "position": [
+          0.0,
+          3.0,
+          6.099999904632568
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          6.400000095367432,
+          0.20000000298023224
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.9200000166893005,
+            0.9200000166893005,
+            0.9399999976158142
+          ],
+          "albedoMap": "None",
+          "ambient": 0.05000000074505806,
+          "envSpecular": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 0.949999988079071,
+          "roughness": 0.03999999910593033,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Chrome Sphere",
+      "transform": {
+        "position": [
+          0.0,
+          0.8602016568183899,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          2.4000000953674316,
+          2.4000000953674316,
+          2.4000000953674316
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.7799999713897705,
+            0.3400000035762787
+          ],
+          "albedoMap": "None",
+          "ambient": 0.05999999865889549,
+          "envSpecular": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 0.8500000238418579,
+          "roughness": 0.11999999731779099,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "distance": 6.0,
+          "enabled": true,
+          "origin": [
+            -3.5,
+            1.399999976158142,
+            -2.0
+          ],
+          "smooth": false,
+          "speed": 1.600000023841858,
+          "type": "Mover"
+        }
+      ],
+      "name": "Gold Sphere",
+      "transform": {
+        "position": [
+          1.1900382041931152,
+          1.399999976158142,
+          -2.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.600000023841858,
+          1.600000023841858,
+          1.600000023841858
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.949999988079071,
+            0.550000011920929,
+            0.3499999940395355
+          ],
+          "albedoMap": "None",
+          "ambient": 0.05999999865889549,
+          "envSpecular": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 0.8500000238418579,
+          "roughness": 0.10000000149011612,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "distance": 5.0,
+          "enabled": true,
+          "origin": [
+            3.5,
+            1.399999976158142,
+            2.0
+          ],
+          "smooth": false,
+          "speed": 1.2000000476837158,
+          "type": "Mover"
+        }
+      ],
+      "name": "Copper Sphere",
+      "transform": {
+        "position": [
+          3.5,
+          1.399999976158142,
+          -1.5175294876098633
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.600000023841858,
+          1.600000023841858,
+          1.600000023841858
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.6200000047683716,
+            0.7200000286102295,
+            1.0
+          ],
+          "albedoMap": "None",
+          "ambient": 0.05999999865889549,
+          "envSpecular": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 0.8999999761581421,
+          "roughness": 0.05999999865889549,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "distance": 2.4000000953674316,
+          "enabled": true,
+          "origin": [
+            3.200000047683716,
+            1.2000000476837158,
+            -3.200000047683716
+          ],
+          "smooth": true,
+          "speed": 1.0,
+          "type": "Mover"
+        }
+      ],
+      "name": "Blue Mirror Ball",
+      "transform": {
+        "position": [
+          3.200000047683716,
+          3.104917049407959,
+          -3.200000047683716
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.399999976158142,
+          1.399999976158142,
+          1.399999976158142
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.800000011920929,
+            0.9700000286102295,
+            0.8600000143051147
+          ],
+          "albedoMap": "None",
+          "ambient": 0.05999999865889549,
+          "envSpecular": 1.0,
+          "metallic": 1.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": true,
+          "reflectivity": 0.8999999761581421,
+          "roughness": 0.07999999821186066,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.6000000238418579
+          ],
+          "distance": 4.0,
+          "enabled": true,
+          "origin": [
+            -3.200000047683716,
+            1.2000000476837158,
+            3.200000047683716
+          ],
+          "smooth": true,
+          "speed": 3.8499999046325684,
+          "type": "Mover"
+        }
+      ],
+      "name": "Mint Mirror Ball",
+      "transform": {
+        "position": [
+          -3.196979522705078,
+          1.2000000476837158,
+          3.201812505722046
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.8500000238418579,
+            0.30000001192092896,
+            0.25
+          ],
+          "albedoMap": "None",
+          "ambient": 0.11999999731779099,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "distance": 8.0,
+          "enabled": true,
+          "origin": [
+            -4.599999904632568,
+            0.6000000238418579,
+            -4.0
+          ],
+          "smooth": true,
+          "speed": 2.5,
+          "type": "Mover"
+        }
+      ],
+      "name": "Patrol Cube",
+      "transform": {
+        "position": [
+          -4.599999904632568,
+          0.6000000238418579,
+          -3.9320976734161377
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 16.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Warm Point Light",
+      "transform": {
+        "position": [
+          -3.5,
+          4.599999904632568,
+          -3.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.3499999940395355,
+            0.550000011920929,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 16.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Cool Point Light",
+      "transform": {
+        "position": [
+          3.5,
+          4.599999904632568,
+          3.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.5
+          ],
+          "inner": 18.0,
+          "intensity": 4.5,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 14.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Green Point Light",
+      "transform": {
+        "position": [
+          3.5999999046325684,
+          2.0,
+          -3.5999999046325684
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.9800000190734863,
+            0.949999988079071
+          ],
+          "inner": 22.0,
+          "intensity": 6.0,
+          "lightType": 2,
+          "outer": 38.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Ceiling Spot",
+      "transform": {
+        "position": [
+          0.0,
+          5.800000190734863,
+          0.0
+        ],
+        "rotation": [
+          -90.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Plane",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.07999999821186066,
+            0.4000000059604645,
+            0.8500000238418579
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.2199999988079071,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "color": [
+            0.07999999821186066,
+            0.4000000059604645,
+            0.8500000238418579
+          ],
+          "opacity": 0.2199999988079071,
+          "type": "Water"
+        }
+      ],
+      "name": "Water",
+      "transform": {
+        "position": [
+          0.0,
+          0.7026203274726868,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.399999618530273,
+          1.0,
+          12.399999618530273
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "ground": [
+            0.20000000298023224,
+            0.1899999976158142,
+            0.17000000178813934
+          ],
+          "horizon": [
+            0.6200000047683716,
+            0.7400000095367432,
+            0.8999999761581421
+          ],
+          "image": "20250717_210302_0772",
+          "intensity": 1.0,
+          "type": "Sky",
+          "zenith": [
+            0.10000000149011612,
+            0.2800000011920929,
+            0.6200000047683716
+          ]
+        }
+      ],
+      "name": "Sky",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ]
+}

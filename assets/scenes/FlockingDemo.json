@@ -1,0 +1,492 @@
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "far": 200.0,
+          "fov": 60.0,
+          "near": 0.10000000149011612,
+          "type": "Camera"
+        },
+        {
+          "moveSpeed": 7.0,
+          "sensitivity": 0.10000000149011612,
+          "type": "FlyController"
+        }
+      ],
+      "name": "MainCamera",
+      "transform": {
+        "position": [
+          -39.93352508544922,
+          28.86272430419922,
+          5.369091510772705
+        ],
+        "rotation": [
+          -43.699951171875,
+          88.10005950927734,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "ground": [
+            0.11999999731779099,
+            0.12999999523162842,
+            0.1599999964237213
+          ],
+          "horizon": [
+            0.75,
+            0.800000011920929,
+            0.949999988079071
+          ],
+          "image": "20250520_211152_0270",
+          "intensity": 1.100000023841858,
+          "type": "Sky",
+          "zenith": [
+            0.10000000149011612,
+            0.1599999964237213,
+            0.3199999928474426
+          ]
+        }
+      ],
+      "name": "Sky",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.10000000149011612,
+            0.11999999731779099,
+            0.14000000059604645
+          ],
+          "albedoMap": "None",
+          "ambient": 0.11999999731779099,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.25,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            12.0,
+            12.0
+          ]
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.699999988079071,
+          "gravity": false,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": true,
+          "type": "Rigidbody"
+        },
+        {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 2,
+          "type": "Collider"
+        }
+      ],
+      "name": "Floor",
+      "transform": {
+        "position": [
+          0.0,
+          -0.10000000149011612,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          60.0,
+          0.20000000298023224,
+          60.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.8500000238418579,
+            0.3499999940395355,
+            0.15000000596046448
+          ],
+          "albedoMap": "None",
+          "ambient": 0.11999999731779099,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.2199999988079071,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.6000000238418579,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "circular": true,
+          "distance": 15.600000381469727,
+          "enabled": true,
+          "origin": [
+            -0.06898188591003418,
+            10.108586311340332,
+            17.67345428466797
+          ],
+          "smooth": false,
+          "speed": 20.5,
+          "type": "PhysicsMover"
+        },
+        {
+          "freezeRotation": false,
+          "friction": 0.5,
+          "gravity": false,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Flock Target",
+      "transform": {
+        "position": [
+          15.252340316772461,
+          10.108586311340332,
+          -0.862036943435669
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          4.0,
+          4.0,
+          4.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "avoidRadius": 2.0,
+          "boidColor": [
+            0.30000001192092896,
+            0.7200000286102295,
+            1.0
+          ],
+          "boidMesh": "Pyramid",
+          "boidScale": 0.4000000059604645,
+          "bounds": [
+            18.0,
+            8.0,
+            18.0
+          ],
+          "buoyancy": false,
+          "count": 220,
+          "formShape": true,
+          "gravity": false,
+          "maxForce": 16.0,
+          "maxSpeed": 9.0,
+          "minSpeed": 3.5,
+          "perception": 2.799999952316284,
+          "physics": false,
+          "separationDist": 1.100000023841858,
+          "spawnRadius": 8.0,
+          "targetName": "Flock Target",
+          "type": "Flock",
+          "wAlignment": 1.0,
+          "wAvoid": 3.0,
+          "wBounds": 0.800000011920929,
+          "wCohesion": 0.8999999761581421,
+          "wForm": 6.0,
+          "wSeek": 0.0,
+          "wSeparation": 1.7999999523162842
+        }
+      ],
+      "name": "Sky Flock",
+      "transform": {
+        "position": [
+          0.0,
+          9.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Plane",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.05999999865889549,
+            0.41999998688697815,
+            0.7799999713897705
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.9200000166893005,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "calm": 0.0,
+          "color": [
+            0.05999999865889549,
+            0.41999998688697815,
+            0.7799999713897705
+          ],
+          "opacity": 0.9200000166893005,
+          "round": false,
+          "splash": true,
+          "splashAmount": 1.0,
+          "splashThreshold": 1.2000000476837158,
+          "type": "Water"
+        }
+      ],
+      "name": "Pool",
+      "transform": {
+        "position": [
+          0.0,
+          1.4745337963104248,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          54.400001525878906,
+          1.0,
+          55.95000076293945
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "avoidRadius": 1.5,
+          "boidColor": [
+            1.0,
+            0.550000011920929,
+            0.20000000298023224
+          ],
+          "boidMesh": "Pyramid",
+          "boidScale": 0.3499999940395355,
+          "bounds": [
+            6.0,
+            1.2000000476837158,
+            6.0
+          ],
+          "buoyancy": true,
+          "count": 40,
+          "formShape": false,
+          "gravity": true,
+          "maxForce": 12.0,
+          "maxSpeed": 4.0,
+          "minSpeed": 1.5,
+          "perception": 2.200000047683716,
+          "physics": true,
+          "separationDist": 0.8999999761581421,
+          "spawnRadius": 3.0,
+          "targetName": "",
+          "type": "Flock",
+          "wAlignment": 1.2000000476837158,
+          "wAvoid": 2.0,
+          "wBounds": 2.0,
+          "wCohesion": 1.0,
+          "wForm": 6.0,
+          "wSeek": 0.0,
+          "wSeparation": 1.7999999523162842
+        }
+      ],
+      "name": "Fish Flock",
+      "transform": {
+        "position": [
+          0.0,
+          0.8999999761581421,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.5058823823928833,
+            0.5058823823928833,
+            0.5058823823928833
+          ],
+          "inner": 18.0,
+          "intensity": 7.900000095367432,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 49.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Point Light",
+      "transform": {
+        "position": [
+          0.0,
+          22.933856964111328,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "post": {
+    "bloom": true,
+    "bloomIntensity": 0.699999988079071,
+    "bloomThreshold": 0.8500000238418579,
+    "enabled": false,
+    "exposure": 1.0499999523162842,
+    "fog": true,
+    "fogColor": [
+      0.07999999821186066,
+      0.09000000357627869,
+      0.11999999731779099
+    ],
+    "fogDensity": 0.05000000074505806,
+    "ssao": true,
+    "ssaoRadius": 0.6000000238418579,
+    "ssaoStrength": 1.100000023841858,
+    "vignette": 0.3400000035762787
+  }
+}

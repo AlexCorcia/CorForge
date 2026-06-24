@@ -1,0 +1,7066 @@
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "far": 200.0,
+          "fov": 62.0,
+          "near": 0.10000000149011612,
+          "type": "Camera"
+        },
+        {
+          "moveSpeed": 8.0,
+          "sensitivity": 0.10000000149011612,
+          "type": "FlyController"
+        }
+      ],
+      "name": "MainCamera",
+      "transform": {
+        "position": [
+          -4.547523021697998,
+          4.582784175872803,
+          14.858956336975098
+        ],
+        "rotation": [
+          -10.899986267089844,
+          20.600082397460938,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "ground": [
+            0.03999999910593033,
+            0.029999999329447746,
+            0.03999999910593033
+          ],
+          "horizon": [
+            0.14000000059604645,
+            0.11999999731779099,
+            0.1599999964237213
+          ],
+          "image": "None",
+          "intensity": 0.5,
+          "type": "Sky",
+          "zenith": [
+            0.019999999552965164,
+            0.029999999329447746,
+            0.07999999821186066
+          ]
+        }
+      ],
+      "name": "Night Sky",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.3499999940395355,
+            0.41999998688697815,
+            0.6000000238418579
+          ],
+          "inner": 18.0,
+          "intensity": 0.44999998807907104,
+          "lightType": 0,
+          "outer": 26.0,
+          "range": 40.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Moonlight",
+      "transform": {
+        "position": [
+          0.0,
+          12.0,
+          0.0
+        ],
+        "rotation": [
+          -55.0,
+          25.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelPart": -1,
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "envSpecular": 1.0,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.699999988079071,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            80.0,
+            80.0
+          ]
+        }
+      ],
+      "name": "Floor",
+      "transform": {
+        "position": [
+          -1.3141188621520996,
+          -0.10000000149011612,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          100.0,
+          0.4000000059604645,
+          100.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 0",
+      "transform": {
+        "position": [
+          22.0,
+          0.8999999761581421,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 0 Flame",
+      "transform": {
+        "position": [
+          22.0,
+          1.899999976158142,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 0 Light",
+      "transform": {
+        "position": [
+          22.0,
+          2.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 1",
+      "transform": {
+        "position": [
+          19.049999237060547,
+          0.8999999761581421,
+          11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 1 Flame",
+      "transform": {
+        "position": [
+          19.049999237060547,
+          1.899999976158142,
+          11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 1 Light",
+      "transform": {
+        "position": [
+          19.049999237060547,
+          2.0,
+          11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 2",
+      "transform": {
+        "position": [
+          11.0,
+          0.8999999761581421,
+          19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 2 Flame",
+      "transform": {
+        "position": [
+          11.0,
+          1.899999976158142,
+          19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 2 Light",
+      "transform": {
+        "position": [
+          11.0,
+          2.0,
+          19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 3",
+      "transform": {
+        "position": [
+          0.0,
+          0.8999999761581421,
+          22.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 3 Flame",
+      "transform": {
+        "position": [
+          0.0,
+          1.899999976158142,
+          22.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 3 Light",
+      "transform": {
+        "position": [
+          0.0,
+          2.0,
+          22.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 4",
+      "transform": {
+        "position": [
+          -11.0,
+          0.8999999761581421,
+          19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 4 Flame",
+      "transform": {
+        "position": [
+          -11.0,
+          1.899999976158142,
+          19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 4 Light",
+      "transform": {
+        "position": [
+          -11.0,
+          2.0,
+          19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 5",
+      "transform": {
+        "position": [
+          -19.049999237060547,
+          0.8999999761581421,
+          11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 5 Flame",
+      "transform": {
+        "position": [
+          -19.049999237060547,
+          1.899999976158142,
+          11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 5 Light",
+      "transform": {
+        "position": [
+          -19.049999237060547,
+          2.0,
+          11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 6",
+      "transform": {
+        "position": [
+          -22.0,
+          0.8999999761581421,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 6 Flame",
+      "transform": {
+        "position": [
+          -22.0,
+          1.899999976158142,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 6 Light",
+      "transform": {
+        "position": [
+          -22.0,
+          2.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 7",
+      "transform": {
+        "position": [
+          -19.049999237060547,
+          0.8999999761581421,
+          -11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 7 Flame",
+      "transform": {
+        "position": [
+          -19.049999237060547,
+          1.899999976158142,
+          -11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 7 Light",
+      "transform": {
+        "position": [
+          -19.049999237060547,
+          2.0,
+          -11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 8",
+      "transform": {
+        "position": [
+          -11.0,
+          0.8999999761581421,
+          -19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 8 Flame",
+      "transform": {
+        "position": [
+          -11.0,
+          1.899999976158142,
+          -19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 8 Light",
+      "transform": {
+        "position": [
+          -11.0,
+          2.0,
+          -19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 9",
+      "transform": {
+        "position": [
+          -0.0,
+          0.8999999761581421,
+          -22.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 9 Flame",
+      "transform": {
+        "position": [
+          -0.0,
+          1.899999976158142,
+          -22.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 9 Light",
+      "transform": {
+        "position": [
+          -0.0,
+          2.0,
+          -22.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 10",
+      "transform": {
+        "position": [
+          11.0,
+          0.8999999761581421,
+          -19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 10 Flame",
+      "transform": {
+        "position": [
+          11.0,
+          1.899999976158142,
+          -19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 10 Light",
+      "transform": {
+        "position": [
+          11.0,
+          2.0,
+          -19.049999237060547
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "column",
+          "modelPart": -1,
+          "modelSource": "column",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Torch 11",
+      "transform": {
+        "position": [
+          19.049999237060547,
+          0.8999999761581421,
+          -11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.44999998807907104,
+          0.8999999761581421,
+          0.44999998807907104
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.07999999821186066,
+          "enabled": true,
+          "endColor": [
+            1.2999999523162842,
+            0.30000001192092896,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 0.029999999329447746,
+          "flickerHz": 14.0,
+          "gravity": 1.399999976158142,
+          "lifetime": 0.8999999761581421,
+          "lifetimeVar": 0.25,
+          "maxParticles": 600,
+          "mode": 0,
+          "rate": 55.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 14.0,
+          "startColor": [
+            3.0,
+            1.5,
+            0.5,
+            0.8999999761581421
+          ],
+          "startSize": 0.30000001192092896,
+          "startSpeed": 1.399999976158142,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Torch 11 Flame",
+      "transform": {
+        "position": [
+          19.049999237060547,
+          1.899999976158142,
+          -11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.550000011920929,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Torch 11 Light",
+      "transform": {
+        "position": [
+          19.049999237060547,
+          2.0,
+          -11.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 0",
+      "transform": {
+        "position": [
+          -14.420000076293945,
+          0.30000001192092896,
+          -14.84000015258789
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 0",
+      "transform": {
+        "position": [
+          -14.420000076293945,
+          0.44999998807907104,
+          -14.84000015258789
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 0 Smoke",
+      "transform": {
+        "position": [
+          -14.420000076293945,
+          1.100000023841858,
+          -14.84000015258789
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 0 Embers",
+      "transform": {
+        "position": [
+          -14.420000076293945,
+          0.5,
+          -14.84000015258789
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 0 Light",
+      "transform": {
+        "position": [
+          -14.420000076293945,
+          1.0,
+          -14.84000015258789
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 1",
+      "transform": {
+        "position": [
+          -15.029999732971191,
+          0.30000001192092896,
+          -6.909999847412109
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 1",
+      "transform": {
+        "position": [
+          -15.029999732971191,
+          0.44999998807907104,
+          -6.909999847412109
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 1 Smoke",
+      "transform": {
+        "position": [
+          -15.029999732971191,
+          1.100000023841858,
+          -6.909999847412109
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 1 Embers",
+      "transform": {
+        "position": [
+          -15.029999732971191,
+          0.5,
+          -6.909999847412109
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 1 Light",
+      "transform": {
+        "position": [
+          -15.029999732971191,
+          1.0,
+          -6.909999847412109
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 3.5,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.699999988079071,
+          "emitDir": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "emitRadius": 1.100000023841858,
+          "enabled": true,
+          "endColor": [
+            0.30000001192092896,
+            0.8999999761581421,
+            2.4000000953674316,
+            0.0
+          ],
+          "endSize": 0.019999999552965164,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 1.5,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 3000,
+          "mode": 0,
+          "rate": 320.0,
+          "shape": 4,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 8.0,
+          "startColor": [
+            1.7999999523162842,
+            0.5,
+            3.200000047683716,
+            0.8999999761581421
+          ],
+          "startSize": 0.18000000715255737,
+          "startSpeed": 2.200000047683716,
+          "swirl": 12.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Portal 2",
+      "transform": {
+        "position": [
+          -13.800000190734863,
+          2.299999952316284,
+          0.9800000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.6000000238418579,
+            0.30000001192092896,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Portal 2 Glow",
+      "transform": {
+        "position": [
+          -13.800000190734863,
+          2.299999952316284,
+          0.9800000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "barrel",
+          "modelPart": -1,
+          "modelSource": "barrel",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Barrel 3",
+      "transform": {
+        "position": [
+          -15.109999656677246,
+          0.6000000238418579,
+          6.840000152587891
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.1599999964237213,
+          "enabled": true,
+          "endColor": [
+            0.07999999821186066,
+            0.20000000298023224,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 1.2999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.5,
+          "lifetime": 2.5999999046325684,
+          "lifetimeVar": 0.5,
+          "maxParticles": 1000,
+          "mode": 0,
+          "rate": 40.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 18.0,
+          "startColor": [
+            0.3199999928474426,
+            0.75,
+            0.20000000298023224,
+            0.5
+          ],
+          "startSize": 0.3199999928474426,
+          "startSpeed": 1.0,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Toxic Smoke 3",
+      "transform": {
+        "position": [
+          -15.109999656677246,
+          1.25,
+          6.840000152587891
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.30000001192092896
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Toxic Light 3",
+      "transform": {
+        "position": [
+          -15.109999656677246,
+          1.0,
+          6.840000152587891
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 4",
+      "transform": {
+        "position": [
+          -14.619999885559082,
+          0.30000001192092896,
+          14.119999885559082
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 4",
+      "transform": {
+        "position": [
+          -14.619999885559082,
+          0.44999998807907104,
+          14.119999885559082
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 4 Smoke",
+      "transform": {
+        "position": [
+          -14.619999885559082,
+          1.100000023841858,
+          14.119999885559082
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 4 Embers",
+      "transform": {
+        "position": [
+          -14.619999885559082,
+          0.5,
+          14.119999885559082
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 4 Light",
+      "transform": {
+        "position": [
+          -14.619999885559082,
+          1.0,
+          14.119999885559082
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 3.5,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.699999988079071,
+          "emitDir": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "emitRadius": 1.100000023841858,
+          "enabled": true,
+          "endColor": [
+            0.30000001192092896,
+            0.8999999761581421,
+            2.4000000953674316,
+            0.0
+          ],
+          "endSize": 0.019999999552965164,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 1.5,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 3000,
+          "mode": 0,
+          "rate": 320.0,
+          "shape": 4,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 8.0,
+          "startColor": [
+            1.7999999523162842,
+            0.5,
+            3.200000047683716,
+            0.8999999761581421
+          ],
+          "startSize": 0.18000000715255737,
+          "startSpeed": 2.200000047683716,
+          "swirl": 12.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Portal 5",
+      "transform": {
+        "position": [
+          -6.21999979019165,
+          2.299999952316284,
+          -14.899999618530273
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.6000000238418579,
+            0.30000001192092896,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Portal 5 Glow",
+      "transform": {
+        "position": [
+          -6.21999979019165,
+          2.299999952316284,
+          -14.899999618530273
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 6",
+      "transform": {
+        "position": [
+          -6.690000057220459,
+          0.30000001192092896,
+          -6.800000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 6",
+      "transform": {
+        "position": [
+          -6.690000057220459,
+          0.44999998807907104,
+          -6.800000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 6 Smoke",
+      "transform": {
+        "position": [
+          -6.690000057220459,
+          1.100000023841858,
+          -6.800000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 6 Embers",
+      "transform": {
+        "position": [
+          -6.690000057220459,
+          0.5,
+          -6.800000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 6 Light",
+      "transform": {
+        "position": [
+          -6.690000057220459,
+          1.0,
+          -6.800000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 3.5,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.699999988079071,
+          "emitDir": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "emitRadius": 1.100000023841858,
+          "enabled": true,
+          "endColor": [
+            0.30000001192092896,
+            0.8999999761581421,
+            2.4000000953674316,
+            0.0
+          ],
+          "endSize": 0.019999999552965164,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 1.5,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 3000,
+          "mode": 0,
+          "rate": 320.0,
+          "shape": 4,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 8.0,
+          "startColor": [
+            1.7999999523162842,
+            0.5,
+            3.200000047683716,
+            0.8999999761581421
+          ],
+          "startSize": 0.18000000715255737,
+          "startSpeed": 2.200000047683716,
+          "swirl": 12.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Portal 7",
+      "transform": {
+        "position": [
+          -6.809999942779541,
+          2.299999952316284,
+          -0.25
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.6000000238418579,
+            0.30000001192092896,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Portal 7 Glow",
+      "transform": {
+        "position": [
+          -6.809999942779541,
+          2.299999952316284,
+          -0.25
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Brazier 8",
+      "transform": {
+        "position": [
+          -8.09000015258789,
+          0.6000000238418579,
+          7.860000133514404
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.4000000059604645,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            2.0,
+            0.5,
+            0.10000000149011612,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 1.0,
+          "lifetime": 2.200000047683716,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 900,
+          "mode": 0,
+          "rate": 50.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.800000011920929,
+          "spread": 30.0,
+          "startColor": [
+            4.0,
+            2.0,
+            0.5,
+            1.0
+          ],
+          "startSize": 0.05999999865889549,
+          "startSpeed": 2.0,
+          "swirl": 2.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Brazier 8 Embers",
+      "transform": {
+        "position": [
+          -8.09000015258789,
+          0.8999999761581421,
+          7.860000133514404
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.6000000238418579,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Brazier 8 Light",
+      "transform": {
+        "position": [
+          -8.09000015258789,
+          1.0,
+          7.860000133514404
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Brazier 9",
+      "transform": {
+        "position": [
+          -7.190000057220459,
+          0.6000000238418579,
+          14.100000381469727
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.4000000059604645,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            2.0,
+            0.5,
+            0.10000000149011612,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 1.0,
+          "lifetime": 2.200000047683716,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 900,
+          "mode": 0,
+          "rate": 50.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.800000011920929,
+          "spread": 30.0,
+          "startColor": [
+            4.0,
+            2.0,
+            0.5,
+            1.0
+          ],
+          "startSize": 0.05999999865889549,
+          "startSpeed": 2.0,
+          "swirl": 2.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Brazier 9 Embers",
+      "transform": {
+        "position": [
+          -7.190000057220459,
+          0.8999999761581421,
+          14.100000381469727
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.6000000238418579,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Brazier 9 Light",
+      "transform": {
+        "position": [
+          -7.190000057220459,
+          1.0,
+          14.100000381469727
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "barrel",
+          "modelPart": -1,
+          "modelSource": "barrel",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Barrel 10",
+      "transform": {
+        "position": [
+          0.14000000059604645,
+          0.6000000238418579,
+          -13.5600004196167
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.1599999964237213,
+          "enabled": true,
+          "endColor": [
+            0.07999999821186066,
+            0.20000000298023224,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 1.2999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.5,
+          "lifetime": 2.5999999046325684,
+          "lifetimeVar": 0.5,
+          "maxParticles": 1000,
+          "mode": 0,
+          "rate": 40.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 18.0,
+          "startColor": [
+            0.3199999928474426,
+            0.75,
+            0.20000000298023224,
+            0.5
+          ],
+          "startSize": 0.3199999928474426,
+          "startSpeed": 1.0,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Toxic Smoke 10",
+      "transform": {
+        "position": [
+          0.14000000059604645,
+          1.25,
+          -13.5600004196167
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.30000001192092896
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Toxic Light 10",
+      "transform": {
+        "position": [
+          0.14000000059604645,
+          1.0,
+          -13.5600004196167
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 11",
+      "transform": {
+        "position": [
+          0.20000000298023224,
+          0.30000001192092896,
+          -6.670000076293945
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 11",
+      "transform": {
+        "position": [
+          0.20000000298023224,
+          0.44999998807907104,
+          -6.670000076293945
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 11 Smoke",
+      "transform": {
+        "position": [
+          0.20000000298023224,
+          1.100000023841858,
+          -6.670000076293945
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 11 Embers",
+      "transform": {
+        "position": [
+          0.20000000298023224,
+          0.5,
+          -6.670000076293945
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 11 Light",
+      "transform": {
+        "position": [
+          0.20000000298023224,
+          1.0,
+          -6.670000076293945
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 99",
+      "transform": {
+        "position": [
+          0.0,
+          0.30000001192092896,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 99",
+      "transform": {
+        "position": [
+          0.0,
+          0.44999998807907104,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 99 Smoke",
+      "transform": {
+        "position": [
+          0.0,
+          1.100000023841858,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 99 Embers",
+      "transform": {
+        "position": [
+          0.0,
+          0.5,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 99 Light",
+      "transform": {
+        "position": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 12",
+      "transform": {
+        "position": [
+          -0.9700000286102295,
+          0.30000001192092896,
+          7.510000228881836
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 12",
+      "transform": {
+        "position": [
+          -0.9700000286102295,
+          0.44999998807907104,
+          7.510000228881836
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 12 Smoke",
+      "transform": {
+        "position": [
+          -0.9700000286102295,
+          1.100000023841858,
+          7.510000228881836
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 12 Embers",
+      "transform": {
+        "position": [
+          -0.9700000286102295,
+          0.5,
+          7.510000228881836
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 12 Light",
+      "transform": {
+        "position": [
+          -0.9700000286102295,
+          1.0,
+          7.510000228881836
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "barrel",
+          "modelPart": -1,
+          "modelSource": "barrel",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Barrel 13",
+      "transform": {
+        "position": [
+          0.28999999165534973,
+          0.6000000238418579,
+          13.989999771118164
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.1599999964237213,
+          "enabled": true,
+          "endColor": [
+            0.07999999821186066,
+            0.20000000298023224,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 1.2999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.5,
+          "lifetime": 2.5999999046325684,
+          "lifetimeVar": 0.5,
+          "maxParticles": 1000,
+          "mode": 0,
+          "rate": 40.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 18.0,
+          "startColor": [
+            0.3199999928474426,
+            0.75,
+            0.20000000298023224,
+            0.5
+          ],
+          "startSize": 0.3199999928474426,
+          "startSpeed": 1.0,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Toxic Smoke 13",
+      "transform": {
+        "position": [
+          0.28999999165534973,
+          1.25,
+          13.989999771118164
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.30000001192092896
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Toxic Light 13",
+      "transform": {
+        "position": [
+          0.28999999165534973,
+          1.0,
+          13.989999771118164
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Brazier 14",
+      "transform": {
+        "position": [
+          7.670000076293945,
+          0.21404731273651123,
+          -14.079999923706055
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.4000000059604645,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            2.0,
+            0.5,
+            0.10000000149011612,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 1.0,
+          "lifetime": 2.200000047683716,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 900,
+          "mode": 0,
+          "rate": 50.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.800000011920929,
+          "spread": 30.0,
+          "startColor": [
+            4.0,
+            2.0,
+            0.5,
+            1.0
+          ],
+          "startSize": 0.05999999865889549,
+          "startSpeed": 2.0,
+          "swirl": 2.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Brazier 14 Embers",
+      "transform": {
+        "position": [
+          7.670000076293945,
+          0.8999999761581421,
+          -14.079999923706055
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.6000000238418579,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Brazier 14 Light",
+      "transform": {
+        "position": [
+          7.670000076293945,
+          1.0,
+          -14.079999923706055
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "chest",
+          "modelPart": -1,
+          "modelSource": "chest",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Chest 15",
+      "transform": {
+        "position": [
+          6.670000076293945,
+          0.550000011920929,
+          -7.599999904632568
+        ],
+        "rotation": [
+          0.0,
+          23.879331588745117,
+          0.0
+        ],
+        "scale": [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 1.5,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.5,
+          "enabled": true,
+          "endColor": [
+            1.7999999523162842,
+            0.4000000059604645,
+            2.4000000953674316,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": -0.30000001192092896,
+          "lifetime": 1.7999999523162842,
+          "lifetimeVar": 0.5,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 70.0,
+          "shape": 2,
+          "soft": true,
+          "speedVar": 0.30000001192092896,
+          "spread": 60.0,
+          "startColor": [
+            0.5,
+            2.0,
+            2.5999999046325684,
+            0.8999999761581421
+          ],
+          "startSize": 0.12999999523162842,
+          "startSpeed": 0.6000000238418579,
+          "swirl": 3.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Chest 15 Magic",
+      "transform": {
+        "position": [
+          6.670000076293945,
+          1.0,
+          -7.599999904632568
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.30000001192092896,
+            0.699999988079071,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 5.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 7.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Chest 15 Glow",
+      "transform": {
+        "position": [
+          6.670000076293945,
+          1.0,
+          -7.599999904632568
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Brazier 16",
+      "transform": {
+        "position": [
+          6.389999866485596,
+          0.12473583221435547,
+          0.18000000715255737
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.4000000059604645,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            2.0,
+            0.5,
+            0.10000000149011612,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 1.0,
+          "lifetime": 2.200000047683716,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 900,
+          "mode": 0,
+          "rate": 50.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.800000011920929,
+          "spread": 30.0,
+          "startColor": [
+            4.0,
+            2.0,
+            0.5,
+            1.0
+          ],
+          "startSize": 0.05999999865889549,
+          "startSpeed": 2.0,
+          "swirl": 2.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Brazier 16 Embers",
+      "transform": {
+        "position": [
+          6.389999866485596,
+          0.8999999761581421,
+          0.18000000715255737
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.6000000238418579,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Brazier 16 Light",
+      "transform": {
+        "position": [
+          6.389999866485596,
+          1.0,
+          0.18000000715255737
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Brazier 17",
+      "transform": {
+        "position": [
+          7.900000095367432,
+          0.6000000238418579,
+          7.550000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.4000000059604645,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            2.0,
+            0.5,
+            0.10000000149011612,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 1.0,
+          "lifetime": 2.200000047683716,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 900,
+          "mode": 0,
+          "rate": 50.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.800000011920929,
+          "spread": 30.0,
+          "startColor": [
+            4.0,
+            2.0,
+            0.5,
+            1.0
+          ],
+          "startSize": 0.05999999865889549,
+          "startSpeed": 2.0,
+          "swirl": 2.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Brazier 17 Embers",
+      "transform": {
+        "position": [
+          7.900000095367432,
+          0.8999999761581421,
+          7.550000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.6000000238418579,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Brazier 17 Light",
+      "transform": {
+        "position": [
+          7.900000095367432,
+          1.0,
+          7.550000190734863
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "barrel",
+          "modelPart": -1,
+          "modelSource": "barrel",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Barrel 18",
+      "transform": {
+        "position": [
+          7.260000228881836,
+          0.6000000238418579,
+          12.979999542236328
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.1599999964237213,
+          "enabled": true,
+          "endColor": [
+            0.07999999821186066,
+            0.20000000298023224,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 1.2999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.5,
+          "lifetime": 2.5999999046325684,
+          "lifetimeVar": 0.5,
+          "maxParticles": 1000,
+          "mode": 0,
+          "rate": 40.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 18.0,
+          "startColor": [
+            0.3199999928474426,
+            0.75,
+            0.20000000298023224,
+            0.5
+          ],
+          "startSize": 0.3199999928474426,
+          "startSpeed": 1.0,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Toxic Smoke 18",
+      "transform": {
+        "position": [
+          7.260000228881836,
+          1.25,
+          12.979999542236328
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.30000001192092896
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Toxic Light 18",
+      "transform": {
+        "position": [
+          7.260000228881836,
+          1.0,
+          12.979999542236328
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Brazier 19",
+      "transform": {
+        "position": [
+          13.199999809265137,
+          0.12475055456161499,
+          -14.380000114440918
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.4000000059604645,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            2.0,
+            0.5,
+            0.10000000149011612,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 1.0,
+          "lifetime": 2.200000047683716,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 900,
+          "mode": 0,
+          "rate": 50.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.800000011920929,
+          "spread": 30.0,
+          "startColor": [
+            4.0,
+            2.0,
+            0.5,
+            1.0
+          ],
+          "startSize": 0.05999999865889549,
+          "startSpeed": 2.0,
+          "swirl": 2.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Brazier 19 Embers",
+      "transform": {
+        "position": [
+          13.199999809265137,
+          0.8999999761581421,
+          -14.380000114440918
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.6000000238418579,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Brazier 19 Light",
+      "transform": {
+        "position": [
+          13.199999809265137,
+          1.0,
+          -14.380000114440918
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "barrel",
+          "modelPart": -1,
+          "modelSource": "barrel",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Barrel 20",
+      "transform": {
+        "position": [
+          13.8100004196167,
+          0.6000000238418579,
+          -5.889999866485596
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.1599999964237213,
+          "enabled": true,
+          "endColor": [
+            0.07999999821186066,
+            0.20000000298023224,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 1.2999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.5,
+          "lifetime": 2.5999999046325684,
+          "lifetimeVar": 0.5,
+          "maxParticles": 1000,
+          "mode": 0,
+          "rate": 40.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 18.0,
+          "startColor": [
+            0.3199999928474426,
+            0.75,
+            0.20000000298023224,
+            0.5
+          ],
+          "startSize": 0.3199999928474426,
+          "startSpeed": 1.0,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Toxic Smoke 20",
+      "transform": {
+        "position": [
+          13.8100004196167,
+          1.25,
+          -5.889999866485596
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.30000001192092896
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Toxic Light 20",
+      "transform": {
+        "position": [
+          13.8100004196167,
+          1.0,
+          -5.889999866485596
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Fire Pit 21",
+      "transform": {
+        "position": [
+          14.630000114440918,
+          0.30000001192092896,
+          0.18000000715255737
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.8999999761581421,
+          0.6000000238418579,
+          0.8999999761581421
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.23999999463558197,
+          "enabled": true,
+          "endColor": [
+            1.399999976158142,
+            0.25,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.05999999865889549,
+          "flickerHz": 14.0,
+          "gravity": 1.600000023841858,
+          "lifetime": 1.100000023841858,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 2000,
+          "mode": 0,
+          "rate": 150.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            3.0,
+            1.399999976158142,
+            0.4000000059604645,
+            0.8999999761581421
+          ],
+          "startSize": 0.5199999809265137,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 21",
+      "transform": {
+        "position": [
+          14.630000114440918,
+          0.44999998807907104,
+          0.18000000715255737
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            0.07000000029802322,
+            0.07000000029802322,
+            0.09000000357627869,
+            0.0
+          ],
+          "endSize": 1.7999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.6000000238418579,
+          "lifetime": 3.0,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 1200,
+          "mode": 0,
+          "rate": 30.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 22.0,
+          "startColor": [
+            0.2199999988079071,
+            0.2199999988079071,
+            0.25,
+            0.41999998688697815
+          ],
+          "startSize": 0.550000011920929,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 21 Smoke",
+      "transform": {
+        "position": [
+          14.630000114440918,
+          1.100000023841858,
+          0.18000000715255737
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.4000000059604645,
+          "enabled": true,
+          "endColor": [
+            1.5,
+            0.30000001192092896,
+            0.05000000074505806,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 0.800000011920929,
+          "lifetime": 2.4000000953674316,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 35.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.699999988079071,
+          "spread": 35.0,
+          "startColor": [
+            4.0,
+            1.600000023841858,
+            0.4000000059604645,
+            1.0
+          ],
+          "startSize": 0.05000000074505806,
+          "startSpeed": 1.600000023841858,
+          "swirl": 1.5,
+          "type": "Particles"
+        }
+      ],
+      "name": "Campfire 21 Embers",
+      "transform": {
+        "position": [
+          14.630000114440918,
+          0.5,
+          0.18000000715255737
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.5,
+            0.20000000298023224
+          ],
+          "inner": 18.0,
+          "intensity": 9.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 12.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Campfire 21 Light",
+      "transform": {
+        "position": [
+          14.630000114440918,
+          1.0,
+          0.18000000715255737
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "rocks",
+          "modelPart": -1,
+          "modelSource": "rocks",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Brazier 22",
+      "transform": {
+        "position": [
+          13.619999885559082,
+          0.6000000238418579,
+          6.639999866485596
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.4000000059604645,
+          0.5
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.25,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.25,
+          "enabled": true,
+          "endColor": [
+            2.0,
+            0.5,
+            0.10000000149011612,
+            0.0
+          ],
+          "endSize": 0.009999999776482582,
+          "flickerHz": 14.0,
+          "gravity": 1.0,
+          "lifetime": 2.200000047683716,
+          "lifetimeVar": 0.6000000238418579,
+          "maxParticles": 900,
+          "mode": 0,
+          "rate": 50.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.800000011920929,
+          "spread": 30.0,
+          "startColor": [
+            4.0,
+            2.0,
+            0.5,
+            1.0
+          ],
+          "startSize": 0.05999999865889549,
+          "startSpeed": 2.0,
+          "swirl": 2.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Brazier 22 Embers",
+      "transform": {
+        "position": [
+          13.619999885559082,
+          0.8999999761581421,
+          6.639999866485596
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            0.6000000238418579,
+            0.25
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Brazier 22 Light",
+      "transform": {
+        "position": [
+          13.619999885559082,
+          1.0,
+          6.639999866485596
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "barrel",
+          "modelPart": -1,
+          "modelSource": "barrel",
+          "type": "Renderer"
+        }
+      ],
+      "name": "Barrel 23",
+      "transform": {
+        "position": [
+          14.1899995803833,
+          0.6000000238418579,
+          13.890000343322754
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.5,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 0.1599999964237213,
+          "enabled": true,
+          "endColor": [
+            0.07999999821186066,
+            0.20000000298023224,
+            0.05999999865889549,
+            0.0
+          ],
+          "endSize": 1.2999999523162842,
+          "flickerHz": 14.0,
+          "gravity": 0.5,
+          "lifetime": 2.5999999046325684,
+          "lifetimeVar": 0.5,
+          "maxParticles": 1000,
+          "mode": 0,
+          "rate": 40.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 18.0,
+          "startColor": [
+            0.3199999928474426,
+            0.75,
+            0.20000000298023224,
+            0.5
+          ],
+          "startSize": 0.3199999928474426,
+          "startSpeed": 1.0,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Toxic Smoke 23",
+      "transform": {
+        "position": [
+          14.1899995803833,
+          1.25,
+          13.890000343322754
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.4000000059604645,
+            1.0,
+            0.30000001192092896
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 8.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Toxic Light 23",
+      "transform": {
+        "position": [
+          14.1899995803833,
+          1.0,
+          13.890000343322754
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 3.5,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.699999988079071,
+          "emitDir": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "emitRadius": 1.100000023841858,
+          "enabled": true,
+          "endColor": [
+            0.30000001192092896,
+            0.8999999761581421,
+            2.4000000953674316,
+            0.0
+          ],
+          "endSize": 0.019999999552965164,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 1.5,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 3000,
+          "mode": 0,
+          "rate": 320.0,
+          "shape": 4,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 8.0,
+          "startColor": [
+            1.7999999523162842,
+            0.5,
+            3.200000047683716,
+            0.8999999761581421
+          ],
+          "startSize": 0.18000000715255737,
+          "startSpeed": 2.200000047683716,
+          "swirl": 12.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Portal 100",
+      "transform": {
+        "position": [
+          0.0,
+          2.299999952316284,
+          -10.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.6000000238418579,
+            0.30000001192092896,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Portal 100 Glow",
+      "transform": {
+        "position": [
+          0.0,
+          2.299999952316284,
+          -10.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 3.5,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.699999988079071,
+          "emitDir": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "emitRadius": 1.100000023841858,
+          "enabled": true,
+          "endColor": [
+            0.30000001192092896,
+            0.8999999761581421,
+            2.4000000953674316,
+            0.0
+          ],
+          "endSize": 0.019999999552965164,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 1.5,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 3000,
+          "mode": 0,
+          "rate": 320.0,
+          "shape": 4,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 8.0,
+          "startColor": [
+            1.7999999523162842,
+            0.5,
+            3.200000047683716,
+            0.8999999761581421
+          ],
+          "startSize": 0.18000000715255737,
+          "startSpeed": 2.200000047683716,
+          "swirl": 12.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Portal 101",
+      "transform": {
+        "position": [
+          -10.0,
+          2.299999952316284,
+          6.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.6000000238418579,
+            0.30000001192092896,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Portal 101 Glow",
+      "transform": {
+        "position": [
+          -10.0,
+          2.299999952316284,
+          6.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 3.5,
+          "blend": 1,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.699999988079071,
+          "emitDir": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "emitRadius": 1.100000023841858,
+          "enabled": true,
+          "endColor": [
+            0.30000001192092896,
+            0.8999999761581421,
+            2.4000000953674316,
+            0.0
+          ],
+          "endSize": 0.019999999552965164,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 1.5,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 3000,
+          "mode": 0,
+          "rate": 320.0,
+          "shape": 4,
+          "soft": true,
+          "speedVar": 0.4000000059604645,
+          "spread": 8.0,
+          "startColor": [
+            1.7999999523162842,
+            0.5,
+            3.200000047683716,
+            0.8999999761581421
+          ],
+          "startSize": 0.18000000715255737,
+          "startSpeed": 2.200000047683716,
+          "swirl": 12.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Portal 102",
+      "transform": {
+        "position": [
+          11.0,
+          2.299999952316284,
+          -4.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.6000000238418579,
+            0.30000001192092896,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 6.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 9.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Portal 102 Glow",
+      "transform": {
+        "position": [
+          11.0,
+          2.299999952316284,
+          -4.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.550000011920929,
+          "boltLength": 5.400000095367432,
+          "boltSegments": 16,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "emitRadius": 0.20000000298023224,
+          "enabled": true,
+          "endColor": [
+            1.0,
+            1.399999976158142,
+            3.0,
+            0.0
+          ],
+          "endSize": 0.05000000074505806,
+          "flickerHz": 14.668087005615234,
+          "gravity": 1.0,
+          "lifetime": 1.2000000476837158,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 600,
+          "mode": 1,
+          "rate": 120.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            2.200000047683716,
+            2.5999999046325684,
+            5.0,
+            1.0
+          ],
+          "startSize": 0.11999999731779099,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Lightning 200",
+      "transform": {
+        "position": [
+          -8.0,
+          6.0,
+          8.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.5,
+            0.6000000238418579,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 11.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Lightning 200 Glow",
+      "transform": {
+        "position": [
+          -8.0,
+          3.0,
+          8.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.550000011920929,
+          "boltLength": 5.400000095367432,
+          "boltSegments": 16,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "emitRadius": 0.20000000298023224,
+          "enabled": true,
+          "endColor": [
+            1.0,
+            1.399999976158142,
+            3.0,
+            0.0
+          ],
+          "endSize": 0.05000000074505806,
+          "flickerHz": 11.844590187072754,
+          "gravity": 1.0,
+          "lifetime": 1.2000000476837158,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 600,
+          "mode": 1,
+          "rate": 120.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            2.200000047683716,
+            2.5999999046325684,
+            5.0,
+            1.0
+          ],
+          "startSize": 0.11999999731779099,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Lightning 201",
+      "transform": {
+        "position": [
+          9.0,
+          6.0,
+          9.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.5,
+            0.6000000238418579,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 11.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Lightning 201 Glow",
+      "transform": {
+        "position": [
+          9.0,
+          3.0,
+          9.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.550000011920929,
+          "boltLength": 5.400000095367432,
+          "boltSegments": 16,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "emitRadius": 0.20000000298023224,
+          "enabled": true,
+          "endColor": [
+            1.0,
+            1.399999976158142,
+            3.0,
+            0.0
+          ],
+          "endSize": 0.05000000074505806,
+          "flickerHz": 12.984912872314453,
+          "gravity": 1.0,
+          "lifetime": 1.2000000476837158,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 600,
+          "mode": 1,
+          "rate": 120.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            2.200000047683716,
+            2.5999999046325684,
+            5.0,
+            1.0
+          ],
+          "startSize": 0.11999999731779099,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Lightning 202",
+      "transform": {
+        "position": [
+          -12.0,
+          6.0,
+          -8.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.5,
+            0.6000000238418579,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 11.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Lightning 202 Glow",
+      "transform": {
+        "position": [
+          -12.0,
+          3.0,
+          -8.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.550000011920929,
+          "boltLength": 5.400000095367432,
+          "boltSegments": 16,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "emitRadius": 0.20000000298023224,
+          "enabled": true,
+          "endColor": [
+            1.0,
+            1.399999976158142,
+            3.0,
+            0.0
+          ],
+          "endSize": 0.05000000074505806,
+          "flickerHz": 9.36401653289795,
+          "gravity": 1.0,
+          "lifetime": 1.2000000476837158,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 600,
+          "mode": 1,
+          "rate": 120.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            2.200000047683716,
+            2.5999999046325684,
+            5.0,
+            1.0
+          ],
+          "startSize": 0.11999999731779099,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Lightning 203",
+      "transform": {
+        "position": [
+          13.0,
+          6.0,
+          3.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.5,
+            0.6000000238418579,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 11.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Lightning 203 Glow",
+      "transform": {
+        "position": [
+          13.0,
+          3.0,
+          3.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 1,
+          "boltJitter": 0.550000011920929,
+          "boltLength": 5.400000095367432,
+          "boltSegments": 16,
+          "drag": 0.4000000059604645,
+          "emitDir": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "emitRadius": 0.20000000298023224,
+          "enabled": true,
+          "endColor": [
+            1.0,
+            1.399999976158142,
+            3.0,
+            0.0
+          ],
+          "endSize": 0.05000000074505806,
+          "flickerHz": 13.208951950073242,
+          "gravity": 1.0,
+          "lifetime": 1.2000000476837158,
+          "lifetimeVar": 0.30000001192092896,
+          "maxParticles": 600,
+          "mode": 1,
+          "rate": 120.0,
+          "shape": 1,
+          "soft": false,
+          "speedVar": 0.5,
+          "spread": 16.0,
+          "startColor": [
+            2.200000047683716,
+            2.5999999046325684,
+            5.0,
+            1.0
+          ],
+          "startSize": 0.11999999731779099,
+          "startSpeed": 1.7999999523162842,
+          "swirl": 0.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Lightning 204",
+      "transform": {
+        "position": [
+          2.0,
+          6.0,
+          13.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            0.5,
+            0.6000000238418579,
+            1.0
+          ],
+          "inner": 18.0,
+          "intensity": 4.0,
+          "lightType": 1,
+          "outer": 26.0,
+          "range": 11.0,
+          "type": "Light"
+        }
+      ],
+      "name": "Lightning 204 Glow",
+      "transform": {
+        "position": [
+          2.0,
+          3.0,
+          13.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.30000001192092896,
+          "emitDir": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "emitRadius": 24.0,
+          "enabled": true,
+          "endColor": [
+            0.8999999761581421,
+            0.949999988079071,
+            1.0,
+            0.4000000059604645
+          ],
+          "endSize": 0.07000000029802322,
+          "flickerHz": 14.0,
+          "gravity": -0.6000000238418579,
+          "lifetime": 7.0,
+          "lifetimeVar": 1.0,
+          "maxParticles": 8000,
+          "mode": 0,
+          "rate": 900.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.5,
+          "spread": 8.0,
+          "startColor": [
+            1.0,
+            1.0,
+            1.0,
+            0.8999999761581421
+          ],
+          "startSize": 0.09000000357627869,
+          "startSpeed": 1.2000000476837158,
+          "swirl": 1.0,
+          "type": "Particles"
+        }
+      ],
+      "name": "Snowfall",
+      "transform": {
+        "position": [
+          0.0,
+          12.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.800000011920929,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 9.0,
+          "enabled": true,
+          "endColor": [
+            0.44999998807907104,
+            0.5,
+            0.5799999833106995,
+            0.0
+          ],
+          "endSize": 4.0,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 7.0,
+          "lifetimeVar": 1.5,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 26.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.20000000298023224,
+          "spread": 80.0,
+          "startColor": [
+            0.5,
+            0.550000011920929,
+            0.6200000047683716,
+            0.12999999523162842
+          ],
+          "startSize": 2.5,
+          "startSpeed": 0.30000001192092896,
+          "swirl": 0.4000000059604645,
+          "type": "Particles"
+        }
+      ],
+      "name": "Mist 0",
+      "transform": {
+        "position": [
+          -10.0,
+          0.4000000059604645,
+          -10.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.800000011920929,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 9.0,
+          "enabled": true,
+          "endColor": [
+            0.44999998807907104,
+            0.5,
+            0.5799999833106995,
+            0.0
+          ],
+          "endSize": 4.0,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 7.0,
+          "lifetimeVar": 1.5,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 26.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.20000000298023224,
+          "spread": 80.0,
+          "startColor": [
+            0.5,
+            0.550000011920929,
+            0.6200000047683716,
+            0.12999999523162842
+          ],
+          "startSize": 2.5,
+          "startSpeed": 0.30000001192092896,
+          "swirl": 0.4000000059604645,
+          "type": "Particles"
+        }
+      ],
+      "name": "Mist 1",
+      "transform": {
+        "position": [
+          10.0,
+          0.4000000059604645,
+          -10.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.800000011920929,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 9.0,
+          "enabled": true,
+          "endColor": [
+            0.44999998807907104,
+            0.5,
+            0.5799999833106995,
+            0.0
+          ],
+          "endSize": 4.0,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 7.0,
+          "lifetimeVar": 1.5,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 26.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.20000000298023224,
+          "spread": 80.0,
+          "startColor": [
+            0.5,
+            0.550000011920929,
+            0.6200000047683716,
+            0.12999999523162842
+          ],
+          "startSize": 2.5,
+          "startSpeed": 0.30000001192092896,
+          "swirl": 0.4000000059604645,
+          "type": "Particles"
+        }
+      ],
+      "name": "Mist 2",
+      "transform": {
+        "position": [
+          -10.0,
+          0.4000000059604645,
+          10.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.800000011920929,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 9.0,
+          "enabled": true,
+          "endColor": [
+            0.44999998807907104,
+            0.5,
+            0.5799999833106995,
+            0.0
+          ],
+          "endSize": 4.0,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 7.0,
+          "lifetimeVar": 1.5,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 26.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.20000000298023224,
+          "spread": 80.0,
+          "startColor": [
+            0.5,
+            0.550000011920929,
+            0.6200000047683716,
+            0.12999999523162842
+          ],
+          "startSize": 2.5,
+          "startSpeed": 0.30000001192092896,
+          "swirl": 0.4000000059604645,
+          "type": "Particles"
+        }
+      ],
+      "name": "Mist 3",
+      "transform": {
+        "position": [
+          10.0,
+          0.4000000059604645,
+          10.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "attraction": 0.0,
+          "blend": 0,
+          "boltJitter": 0.5,
+          "boltLength": 4.0,
+          "boltSegments": 14,
+          "drag": 0.800000011920929,
+          "emitDir": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "emitRadius": 9.0,
+          "enabled": true,
+          "endColor": [
+            0.44999998807907104,
+            0.5,
+            0.5799999833106995,
+            0.0
+          ],
+          "endSize": 4.0,
+          "flickerHz": 14.0,
+          "gravity": 0.0,
+          "lifetime": 7.0,
+          "lifetimeVar": 1.5,
+          "maxParticles": 700,
+          "mode": 0,
+          "rate": 26.0,
+          "shape": 1,
+          "soft": true,
+          "speedVar": 0.20000000298023224,
+          "spread": 80.0,
+          "startColor": [
+            0.5,
+            0.550000011920929,
+            0.6200000047683716,
+            0.12999999523162842
+          ],
+          "startSize": 2.5,
+          "startSpeed": 0.30000001192092896,
+          "swirl": 0.4000000059604645,
+          "type": "Particles"
+        }
+      ],
+      "name": "Mist 4",
+      "transform": {
+        "position": [
+          0.0,
+          0.4000000059604645,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "post": {
+    "bloom": true,
+    "bloomIntensity": 0.800000011920929,
+    "bloomThreshold": 0.8500000238418579,
+    "enabled": true,
+    "exposure": 1.0,
+    "fog": false,
+    "fogColor": [
+      0.05000000074505806,
+      0.07000000029802322,
+      0.12999999523162842
+    ],
+    "fogDensity": 0.03500000014901161,
+    "ssao": true,
+    "ssaoRadius": 0.6000000238418579,
+    "ssaoStrength": 1.2000000476837158,
+    "vignette": 0.3400000035762787
+  }
+}

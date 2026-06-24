@@ -1,0 +1,409 @@
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "mesh": "Plane",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.6000000238418579,
+            0.6000000238418579,
+            0.6000000238418579
+          ],
+          "albedoMap": "Checker",
+          "ambient": 0.07999999821186066,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            5.0,
+            5.0
+          ]
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.0,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 2,
+          "type": "Collider"
+        }
+      ],
+      "name": "Ground",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          30.0,
+          1.0,
+          30.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "far": 100.0,
+          "fov": 60.0,
+          "near": 0.10000000149011612,
+          "type": "Camera"
+        },
+        {
+          "moveSpeed": 3.0,
+          "sensitivity": 0.10000000149011612,
+          "type": "FlyController"
+        }
+      ],
+      "name": "MainCamera",
+      "transform": {
+        "position": [
+          5.771246433258057,
+          5.125143051147461,
+          -2.657799482345581
+        ],
+        "rotation": [
+          -21.199968338012695,
+          -461.39990234375,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Sphere",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.11764705181121826,
+            1.0,
+            0.0
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.6930000185966492,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": true,
+          "friction": 0.5,
+          "gravity": false,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.6100000143051147,
+          "shape": 1,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          0.9224421977996826,
+          0.9447459578514099,
+          0.020678818225860596
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Cube",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.7960000038146973,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": true,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.5,
+            0.6100000143051147,
+            0.5
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          -1.3202602863311768,
+          0.6049945950508118,
+          -1.5511267185211182
+        ],
+        "rotation": [
+          -0.0,
+          -29.996692657470703,
+          -0.0
+        ],
+        "scale": [
+          0.9999901652336121,
+          0.9999911785125732,
+          0.9999926090240479
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "pyramid",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.0,
+            2.384185791015625e-07,
+            1.0
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 0.7279999852180481,
+          "reflectBox": false,
+          "reflectPlanar": false,
+          "reflective": false,
+          "reflectivity": 0.6000000238418579,
+          "roughness": 0.5,
+          "transparent": true,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "freezeRotation": true,
+          "friction": 0.5,
+          "gravity": true,
+          "mass": 1.0,
+          "restitution": 0.4000000059604645,
+          "static": false,
+          "type": "Rigidbody"
+        },
+        {
+          "halfExtents": [
+            0.5,
+            1.0,
+            0.41999998688697815
+          ],
+          "planeNormal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "radius": 0.5,
+          "shape": 0,
+          "type": "Collider"
+        }
+      ],
+      "name": "Cube",
+      "transform": {
+        "position": [
+          -0.5176777839660645,
+          1.0365638732910156,
+          1.480525255203247
+        ],
+        "rotation": [
+          -1.7544735670089722,
+          -114.88298034667969,
+          -176.42724609375
+        ],
+        "scale": [
+          0.9999958872795105,
+          0.9999876022338867,
+          0.9999779462814331
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "inner": 49.5,
+          "intensity": 11.0,
+          "lightType": 2,
+          "outer": 49.5,
+          "range": 14.5,
+          "type": "Light"
+        }
+      ],
+      "name": "Spot Light",
+      "transform": {
+        "position": [
+          1.9898241758346558,
+          2.5819203853607178,
+          0.360996812582016
+        ],
+        "rotation": [
+          -50.46782684326172,
+          -90.0,
+          2.5000665187835693
+        ],
+        "scale": [
+          5.144055366516113,
+          0.9999964833259583,
+          0.005938156042248011
+        ]
+      }
+    },
+    {
+      "components": [
+        {
+          "mesh": "Plane",
+          "modelSource": "",
+          "type": "Renderer"
+        },
+        {
+          "albedo": [
+            0.800000011920929,
+            0.800000011920929,
+            0.8199999928474426
+          ],
+          "albedoMap": "None",
+          "ambient": 0.07999999821186066,
+          "metallic": 0.0,
+          "normalMap": "None",
+          "opacity": 1.0,
+          "reflectBox": false,
+          "reflectPlanar": true,
+          "reflective": true,
+          "reflectivity": 1.0,
+          "roughness": 0.5,
+          "transparent": false,
+          "type": "Material",
+          "uvScale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "name": "Plane",
+      "transform": {
+        "position": [
+          -4.344715118408203,
+          1.0,
+          0.3729931116104126
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          -97.55057525634766
+        ],
+        "scale": [
+          5.144054889678955,
+          0.999996542930603,
+          13.111505508422852
+        ]
+      }
+    }
+  ]
+}
