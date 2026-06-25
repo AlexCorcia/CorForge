@@ -28,29 +28,10 @@ void draw_submesh(const RenderContext &ctx, const glm::mat4 &model, const glm::m
 	const Shader &s = *material.shader;
 	s.use();
 	s.set_mat4("uModel", model);
-	s.set_mat4("uView", ctx.view);
-	s.set_mat4("uProj", ctx.proj);
 	s.set_mat3("uNormalMatrix", normal_mat);
-	s.set_vec3("uViewPos", ctx.camera_pos);
-
-	s.set_int("uNumLights", ctx.num_lights);
-	for (int i = 0; i < ctx.num_lights; ++i)
-	{
-		const GpuLight &g = ctx.lights[i];
-		const std::string p = "uLights[" + std::to_string(i) + "].";
-		s.set_int(p + "type", g.type);
-		s.set_vec3(p + "color", g.color);
-		s.set_float(p + "intensity", g.intensity);
-		s.set_vec3(p + "position", g.position);
-		s.set_vec3(p + "direction", g.direction);
-		s.set_float(p + "range", g.range);
-		s.set_float(p + "cosInner", g.cos_inner);
-		s.set_float(p + "cosOuter", g.cos_outer);
-		s.set_int(p + "shadow2DIndex", g.shadow2_d_index);
-		s.set_int(p + "shadowCubeIndex", g.shadow_cube_index);
-	}
-	for (int i = 0; i < ctx.num_shadow2_d; ++i)
-		s.set_mat4("uLightSpace2D[" + std::to_string(i) + "]", ctx.light_space2_d[i]);
+	// uView / uProj / uViewPos / uNumLights / uLights[] / uLightSpace2D[] now come
+	// from the shared FrameBlock UBO (uploaded once per pass in draw_scene), not
+	// from per-submesh uniforms -- this is the whole point of the refactor.
 
 	s.set_vec3("uAlbedo", material.albedo);
 	s.set_float("uAmbient", material.ambient);
@@ -59,19 +40,12 @@ void draw_submesh(const RenderContext &ctx, const glm::mat4 &model, const glm::m
 	s.set_vec2("uUvScale", material.uv_scale);
 	s.set_float("uOpacity", material.opacity);
 	s.set_float("uCalm", material.calm); // water: flatten waves + bands (puddles)
-	s.set_float("uTime", ctx.time);      // animated materials (water)
-	s.set_float("uNear", ctx.near_plane);
-	s.set_float("uFar", ctx.far_plane);
+	// uTime / uNear / uFar / uApplyGamma / uApplyFog / uFogColor / uFogDensity are
+	// all pass-constant -> they live in the FrameBlock UBO now.
 	glActiveTexture(GL_TEXTURE11);
 	glBindTexture(GL_TEXTURE_2D, ctx.scene_depth); // scene depth for water shore foam
 	s.set_int("uDepthTex", 11);
 	glActiveTexture(GL_TEXTURE0);
-	s.set_int("uApplyGamma", ctx.apply_gamma ? 1 : 0);
-	// Distance fog: applied in-shader only during reflection captures (the main
-	// pass fogs in post-processing). Keeps reflected geometry as hazy as the scene.
-	s.set_int("uApplyFog", ctx.apply_fog ? 1 : 0);
-	s.set_vec3("uFogColor", ctx.fog_color);
-	s.set_float("uFogDensity", ctx.fog_density);
 
 	const bool can_reflect = ctx.reflections_enabled && material.reflective;
 	int planar_mode = 0;
@@ -85,10 +59,9 @@ void draw_submesh(const RenderContext &ctx, const glm::mat4 &model, const glm::m
 	const bool do_reflect = can_reflect && (reflection_cube != 0 || planar_mode != 0);
 	s.set_int("uReflective", do_reflect ? 1 : 0);
 	s.set_float("uReflectivity", material.reflectivity);
-	// Parallax correction: where the cubemap was captured + the ground level.
+	// uReflProbePos is per-object (where this cubemap was captured); uReflBoxMin
+	// and uClipPlane are pass-constant and live in the FrameBlock UBO.
 	s.set_vec3("uReflProbePos", probe_pos);
-	s.set_vec3("uReflBoxMin", ctx.refl_box_min);
-	s.set_vec4("uClipPlane", ctx.clip_plane);
 
 	const auto &tex = material.albedo_map ? material.albedo_map : Texture::white();
 	tex->bind(0);
@@ -102,17 +75,14 @@ void draw_submesh(const RenderContext &ctx, const glm::mat4 &model, const glm::m
 	(material.normal_map ? material.normal_map : Texture::white())->bind(9);
 	s.set_int("uNormalMap", 9);
 
-	// Sky / IBL environment.
-	s.set_int("uHasSky", ctx.has_sky ? 1 : 0);
-	s.set_float("uEnvMaxMip", ctx.env_max_mip);
-	s.set_float("uSkyIntensity", ctx.sky_intensity);
+	// Sky / IBL environment: uHasSky/uEnvMaxMip/uSkyIntensity/uShadowStrength are
+	// in the FrameBlock UBO; only the per-material env-specular scale stays here.
 	s.set_float("uEnvSpecular", material.env_specular);
 	glActiveTexture(GL_TEXTURE10);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, ctx.env_cube);
 	s.set_int("uEnvCube", 10);
 	glActiveTexture(GL_TEXTURE0);
 
-	s.set_float("uShadowStrength", ctx.shadow_strength);
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D_ARRAY, ctx.shadow2_d_array);
 	s.set_int("uShadow2D", 1);
@@ -133,7 +103,6 @@ void draw_submesh(const RenderContext &ctx, const glm::mat4 &model, const glm::m
 	// always assigned (5 = plane, 6 = box array) so the two different sampler
 	// types never collide on the same unit, even when unused this draw.
 	s.set_int("uPlanarMode", planar_mode);
-	s.set_vec2("uScreenSize", ctx.screen_size);
 	s.set_int("uPlanarTex", 5);
 	s.set_int("uPlanarArray", 6);
 	if (planar_mode == 1)

@@ -5,8 +5,38 @@ in vec3 vTangent;
 in vec3 vFragPos;
 in vec2 vUV;
 
-uniform vec3 uViewPos;
+// Shared pass-constant data (view/proj/lights/shadows/sky/fog), bound once per
+// pass as a std140 UBO (binding 0). MUST stay byte-identical across basic/water/
+// terrain and match FrameStd140 in RendererManager.cpp.
+#define MAX_LIGHTS 8
+#define MAX_SHADOW_2D 6
+struct Light {
+    int   type;        // 0 directional, 1 point, 2 spot
+    vec3  color;
+    float intensity;
+    vec3  position;
+    vec3  direction;
+    float range;
+    float cosInner;
+    float cosOuter;
+    int   shadow2DIndex;
+    int   shadowCubeIndex;
+};
+layout(std140, binding = 0) uniform FrameBlock {
+    mat4  uView;
+    mat4  uProj;
+    mat4  uLightSpace2D[MAX_SHADOW_2D];
+    vec4  uClipPlane;
+    vec3  uViewPos;     float uShadowStrength;
+    vec3  uReflBoxMin;  float uEnvMaxMip;    // scene AABB min (.y = ground level)
+    vec3  uFogColor;    float uFogDensity;
+    vec2  uScreenSize;  float uSkyIntensity; float uTime;
+    float uNear; float uFar; int uNumLights; int uHasSky;
+    int   uApplyGamma; int uApplyFog; int uPad0; int uPad1;
+    Light uLights[MAX_LIGHTS];
+};
 
+// --- per-object material uniforms -------------------------------------------
 uniform vec3      uAlbedo;
 uniform float     uAmbient;
 uniform sampler2D uAlbedoMap;       // sRGB
@@ -22,9 +52,6 @@ uniform int       uHasNormalMap;
 
 // Sky / image-based lighting environment (linear HDR cubemap, mipmapped).
 uniform samplerCube uEnvCube;
-uniform int         uHasSky;
-uniform float       uEnvMaxMip;
-uniform float       uSkyIntensity;
 uniform float       uEnvSpecular; // scales the IBL mirror term (0 = matte)
 
 // Per-object environment reflection (captured cubemap).
@@ -32,11 +59,6 @@ uniform int         uReflective;
 uniform float       uReflectivity;
 uniform samplerCube uReflCube;
 uniform vec3        uReflProbePos;  // where the cubemap was captured
-uniform vec3        uReflBoxMin;    // scene AABB min; .y is the ground level
-uniform int         uApplyGamma;
-uniform int         uApplyFog;    // in-shader fog for reflection captures
-uniform vec3        uFogColor;
-uniform float       uFogDensity;
 uniform float       uOpacity;
 
 // Planar reflection (flat mirror surfaces). uPlanarMode: 0 = cubemap, 1 = single
@@ -46,31 +68,11 @@ uniform int         uPlanarMode;
 uniform sampler2D   uPlanarTex;
 uniform sampler2DArray uPlanarArray;
 uniform vec3        uFaceN[6];   // box face world normals (mode 2)
-uniform vec2        uScreenSize;
-
-#define MAX_LIGHTS 8
-#define MAX_SHADOW_2D 6
-struct Light {
-    int   type;        // 0 directional, 1 point, 2 spot
-    vec3  color;
-    float intensity;
-    vec3  position;
-    vec3  direction;
-    float range;
-    float cosInner;
-    float cosOuter;
-    int   shadow2DIndex;
-    int   shadowCubeIndex;
-};
-uniform int   uNumLights;
-uniform Light uLights[MAX_LIGHTS];
 
 uniform sampler2DArray   uShadow2D;
 uniform samplerCubeArray uShadowCube;
 uniform sampler2DArray   uShadow2DColor;   // transmittance (translucent/coloured shadows)
 uniform samplerCubeArray uShadowCubeColor;
-uniform mat4  uLightSpace2D[MAX_SHADOW_2D];
-uniform float uShadowStrength;
 
 out vec4 FragColor;
 

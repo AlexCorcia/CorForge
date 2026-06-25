@@ -127,6 +127,26 @@ public:
 
 	void render_frame();
 
+	// --- Frame profiler -----------------------------------------------------
+	// Per-pass CPU + GPU timing. GPU timings come from GL_TIME_ELAPSED queries
+	// double-buffered across frames, so reading them back never stalls the
+	// pipeline (the values shown are 2 frames old, imperceptible for a HUD).
+	enum ProfStage
+	{
+		PROF_SHADOWS,  // shadow-map depth passes
+		PROF_CAPTURES, // env cubemap + reflection captures
+		PROF_SCENE,    // main opaque/transparent/particle draw
+		PROF_POST,     // SSAO + bloom + composite + overlays
+		PROF_COUNT
+	};
+	struct StageTime
+	{
+		double cpu_ms = 0.0; // CPU time spent issuing the pass's GL commands
+		double gpu_ms = 0.0; // GPU time executing them (timer query)
+	};
+	const StageTime *stage_times() const { return m_stage_time; }
+	static const char *stage_name(int stage);
+
 	// Cast a ray from the main camera through screen pixel (mouseX, mouseY,
 	// top-left origin) and return the nearest drawable Object hit, or nullptr.
 	class Object *pick(double mouse_x, double mouse_y) const;
@@ -140,6 +160,13 @@ public:
 	// Directional shadow mapping controls.
 	float shadow_strength = 0.85f;   // 0 = off
 	float shadow_ortho_size = 14.0f; // half-extent of the light's orthographic box
+
+	// When set, shadow maps are only re-rendered when the occluders or lights
+	// actually change (a per-frame fingerprint detects this), so a static scene
+	// viewed from a moving camera pays ~0 for shadows. Turn off to force every
+	// frame (e.g. if a shader-driven deformation the fingerprint can't see moves).
+	bool shadows_auto_skip = true;
+	bool shadows_updated_last() const { return m_shadows_updated_last; }
 
 	// Selection outline (drawn around the currently-selected object).
 	glm::vec3 outline_color{1.0f, 0.45f, 0.08f};
@@ -183,6 +210,13 @@ private:
 	void draw_scene(const RenderContext &ctx, RendererComponent *skip = nullptr,
 	                bool main_pass = false);
 	void resolve_scene_depth(int w, int h); // MSAA depth -> sampleable texture (for water foam)
+
+	// Pack the pass-constant data (view/proj/lights/shadows/sky/fog) into the
+	// shared std140 uniform buffer, uploaded once per draw_scene instead of once
+	// per submesh. Bound to uniform-block binding 0; read by basic/water/terrain.
+	void init_frame_ubo();
+	void upload_frame_ubo(const RenderContext &ctx);
+	unsigned int m_frame_ubo = 0;
 
 	// Post-processing: an HDR scene target + SSAO/bloom/composite passes.
 	void init_post();
@@ -294,6 +328,21 @@ private:
 	std::shared_ptr<Shader> m_depth_shader;      // 2D (dir/spot)
 	std::shared_ptr<Shader> m_cube_depth_shader; // point (linear distance)
 	std::vector<glm::mat4> m_light_space2_d;
+
+	// Dirty-tracking for the shadow pass: a fingerprint of everything the shadow
+	// maps depend on (occluder transforms/meshes/transmittance + light params).
+	// When it matches the previous frame, the GPU shadow render is skipped.
+	unsigned long long m_shadow_fp = 0;
+	bool m_shadow_valid = false;          // have the maps been rendered at least once?
+	bool m_shadows_updated_last = false;  // did we actually re-render them this frame?
+
+	// Frame profiler state: two query sets ping-ponged by frame parity, so each
+	// set's results are read back two frames after they were issued (always ready).
+	StageTime m_stage_time[PROF_COUNT];
+	unsigned int m_prof_query[2][PROF_COUNT] = {};
+	bool m_prof_init = false;
+	bool m_prof_have[2] = {false, false}; // has this set been written at least once?
+	unsigned long long m_prof_frame = 0;
 };
 
 } // namespace cf

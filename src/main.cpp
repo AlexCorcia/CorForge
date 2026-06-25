@@ -36,8 +36,10 @@ try
 	RendererManager::instance().set_default_shader(shader);
 	RendererManager::instance().set_default_mesh(AssetManager::instance().mesh("Cube"));
 
-	// Start from a saved scene rather than building one in code.
-	Scene::load(Scene::file_path("DonutDemo"));
+	// Start from a saved scene rather than building one in code. The startup scene
+	// can be overridden with CORFORGE_SCENE (e.g. for profiling a specific scene).
+	const char *start_scene = std::getenv("CORFORGE_SCENE");
+	Scene::load(Scene::file_path(start_scene ? start_scene : "DonutDemo"));
 
 	// --- Main loop ----------------------------------------------------------
 	WindowManager &window = WindowManager::instance();

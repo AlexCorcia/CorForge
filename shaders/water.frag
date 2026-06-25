@@ -11,36 +11,39 @@ in vec2 vUV;
 
 out vec4 FragColor;
 
-uniform vec3  uViewPos;
-uniform vec3  uAlbedo;      // base water colour
-uniform float uOpacity;
-uniform vec2  uScreenSize;
-uniform float uTime;
-uniform float uCalm; // 0 = ocean, 1 = flat calm puddle
-uniform int   uApplyGamma;
-uniform int   uApplyFog;    // in-shader fog for reflection captures
-uniform vec3  uFogColor;
-uniform float uFogDensity;
-
-uniform sampler2D uDepthTex; // resolved opaque scene depth (0/1 = none)
-uniform float uNear;
-uniform float uFar;
-
-// --- lights + shadows (same bindings drawSubmesh sets for every shader) -------
+// Shared pass-constant data (see basic.frag). Must stay byte-identical across
+// basic/water/terrain and match FrameStd140 in RendererManager.cpp.
 #define MAX_LIGHTS 8
 #define MAX_SHADOW_2D 6
 struct Light {
     int   type; vec3 color; float intensity; vec3 position; vec3 direction;
     float range; float cosInner; float cosOuter; int shadow2DIndex; int shadowCubeIndex;
 };
-uniform int   uNumLights;
-uniform Light uLights[MAX_LIGHTS];
+layout(std140, binding = 0) uniform FrameBlock {
+    mat4  uView;
+    mat4  uProj;
+    mat4  uLightSpace2D[MAX_SHADOW_2D];
+    vec4  uClipPlane;
+    vec3  uViewPos;     float uShadowStrength;
+    vec3  uReflBoxMin;  float uEnvMaxMip;
+    vec3  uFogColor;    float uFogDensity;
+    vec2  uScreenSize;  float uSkyIntensity; float uTime;
+    float uNear; float uFar; int uNumLights; int uHasSky;
+    int   uApplyGamma; int uApplyFog; int uPad0; int uPad1;
+    Light uLights[MAX_LIGHTS];
+};
+
+// --- per-object material uniforms -------------------------------------------
+uniform vec3  uAlbedo;      // base water colour
+uniform float uOpacity;
+uniform float uCalm; // 0 = ocean, 1 = flat calm puddle
+
+uniform sampler2D uDepthTex; // resolved opaque scene depth (0/1 = none)
+
 uniform sampler2DArray   uShadow2D;
 uniform samplerCubeArray uShadowCube;
 uniform sampler2DArray   uShadow2DColor;
 uniform samplerCubeArray uShadowCubeColor;
-uniform mat4  uLightSpace2D[MAX_SHADOW_2D];
-uniform float uShadowStrength;
 
 float hash(vec2 p) { p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
 float vnoise(vec2 p) {

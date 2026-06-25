@@ -22,8 +22,11 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <algorithm>
+#include <chrono>
 #include <cmath>
+#include <cstddef>
 #include <cstdio>
+#include <cstdlib>
 #include <limits>
 
 namespace cf
@@ -85,12 +88,80 @@ glm::mat4 reflection_matrix(const glm::vec3 &n, float d)
 	return m;
 }
 
+// --- std140 mirror of the shaders' FrameBlock --------------------------------
+// These MUST match the `layout(std140) uniform FrameBlock` declared identically
+// in basic/water/terrain (vert+frag). std140 rules: vec3 aligns to 16, struct
+// array elements pad to 16. The explicit pads below reproduce that exactly; the
+// static_asserts below catch any drift at compile time.
+struct LightStd140
+{
+	int type;
+	float pad0[3];
+	glm::vec3 color;
+	float intensity;
+	glm::vec3 position;
+	float pad1;
+	glm::vec3 direction;
+	float range;
+	float cos_inner;
+	float cos_outer;
+	int shadow2_d_index;
+	int shadow_cube_index;
+};
+static_assert(sizeof(LightStd140) == 80, "LightStd140 must be 80 bytes (std140)");
+
+struct FrameStd140
+{
+	glm::mat4 view;                  // 0
+	glm::mat4 proj;                  // 64
+	glm::mat4 light_space2_d[6];     // 128
+	glm::vec4 clip_plane;            // 512
+	glm::vec3 view_pos;              // 528
+	float shadow_strength;           // 540
+	glm::vec3 refl_box_min;          // 544
+	float env_max_mip;               // 556
+	glm::vec3 fog_color;             // 560
+	float fog_density;               // 572
+	glm::vec2 screen_size;           // 576
+	float sky_intensity;             // 584
+	float time;                      // 588
+	float near_plane;                // 592
+	float far_plane;                 // 596
+	int num_lights;                  // 600
+	int has_sky;                     // 604
+	int apply_gamma;                 // 608
+	int apply_fog;                   // 612
+	int pad0;                        // 616
+	int pad1;                        // 620
+	LightStd140 lights[8];           // 624
+};
+static_assert(sizeof(FrameStd140) == 1264, "FrameStd140 must be 1264 bytes (std140)");
+static_assert(offsetof(FrameStd140, lights) == 624, "FrameBlock light array offset");
+static_assert(offsetof(FrameStd140, view_pos) == 528, "FrameBlock viewPos offset");
+
 } // namespace
 
 RendererManager &RendererManager::instance()
 {
 	static RendererManager s;
 	return s;
+}
+
+const char *RendererManager::stage_name(int stage)
+{
+	switch (stage)
+	{
+	case PROF_SHADOWS:
+		return "Shadows";
+	case PROF_CAPTURES:
+		return "Captures";
+	case PROF_SCENE:
+		return "Scene";
+	case PROF_POST:
+		return "Post";
+	default:
+		return "?";
+	}
 }
 
 void RendererManager::init()
@@ -112,6 +183,7 @@ void RendererManager::init()
 	                                            CORFORGE_SHADER_DIR "/terrain.frag");
 	init_post();
 	init_particles();
+	init_frame_ubo();
 
 	if (GLenum e = glGetError(); e != GL_NO_ERROR)
 		std::fprintf(stderr, "[RendererManager] GL error after shadow init: 0x%X\n", e);
@@ -765,7 +837,71 @@ void RendererManager::render_shadow_maps()
 	}
 
 	if (n2d == 0 && ncube == 0)
+	{
+		m_shadows_updated_last = false;
 		return;
+	}
+
+	// Fingerprint everything the shadow maps depend on (FNV-1a over light params +
+	// each occluder's world transform, mesh identity, and transmittance colour/
+	// opacity). If it's identical to the last render, the maps are still valid --
+	// skip the whole GPU pass and keep sampling last frame's textures. The camera
+	// is deliberately NOT part of the fingerprint: shadow maps are view-independent.
+	auto fnv = [](unsigned long long h, const void *data, size_t n)
+	{
+		const auto *p = static_cast<const unsigned char *>(data);
+		for (size_t i = 0; i < n; ++i)
+			h = (h ^ p[i]) * 1099511628211ull;
+		return h;
+	};
+	unsigned long long fp = 14695981039346656037ull;
+	fp = fnv(fp, &m_shadow2_d_size, sizeof(m_shadow2_d_size));
+	fp = fnv(fp, &m_cube_size, sizeof(m_cube_size));
+	fp = fnv(fp, &shadow_ortho_size, sizeof(shadow_ortho_size));
+	for (const GpuLight &g : m_gpu_lights)
+	{
+		fp = fnv(fp, &g.type, sizeof(g.type));
+		fp = fnv(fp, &g.position, sizeof(g.position));
+		fp = fnv(fp, &g.direction, sizeof(g.direction));
+		fp = fnv(fp, &g.range, sizeof(g.range));
+		fp = fnv(fp, &g.cos_outer, sizeof(g.cos_outer));
+		fp = fnv(fp, &g.shadow2_d_index, sizeof(g.shadow2_d_index));
+		fp = fnv(fp, &g.shadow_cube_index, sizeof(g.shadow_cube_index));
+	}
+	for (RendererComponent *r : m_renderers)
+	{
+		const glm::mat4 m = r->owner()->world_matrix();
+		fp = fnv(fp, &m, sizeof(m));
+		if (!r->submeshes.empty())
+		{
+			for (const Submesh &sm : r->submeshes)
+			{
+				const Mesh *mp = sm.mesh.get();
+				fp = fnv(fp, &mp, sizeof(mp));
+				fp = fnv(fp, &sm.material.albedo, sizeof(sm.material.albedo));
+				fp = fnv(fp, &sm.material.opacity, sizeof(sm.material.opacity));
+			}
+		}
+		else
+		{
+			const Mesh *mp = r->mesh.get();
+			fp = fnv(fp, &mp, sizeof(mp));
+			const MaterialComponent *mc = r->owner()->get_component<MaterialComponent>();
+			const glm::vec3 alb = mc ? mc->material.albedo : glm::vec3(1.0f);
+			const float op = mc ? mc->material.opacity : 1.0f;
+			fp = fnv(fp, &alb, sizeof(alb));
+			fp = fnv(fp, &op, sizeof(op));
+		}
+	}
+
+	if (shadows_auto_skip && m_shadow_valid && fp == m_shadow_fp)
+	{
+		m_shadows_updated_last = false; // unchanged -> reuse existing shadow maps
+		return;
+	}
+	m_shadow_fp = fp;
+	m_shadow_valid = true;
+	m_shadows_updated_last = true;
 
 	glBindFramebuffer(GL_FRAMEBUFFER, m_shadow_fbo);
 
@@ -1243,8 +1379,70 @@ void RendererManager::render_post(const RenderContext &ctx)
 	glEnable(GL_DEPTH_TEST);
 }
 
+void RendererManager::init_frame_ubo()
+{
+	glGenBuffers(1, &m_frame_ubo);
+	glBindBuffer(GL_UNIFORM_BUFFER, m_frame_ubo);
+	glBufferData(GL_UNIFORM_BUFFER, sizeof(FrameStd140), nullptr, GL_DYNAMIC_DRAW);
+	// Bind to block binding point 0; the shaders declare `binding = 0` so they all
+	// read from this one buffer without any per-program glUniformBlockBinding call.
+	glBindBufferBase(GL_UNIFORM_BUFFER, 0, m_frame_ubo);
+	glBindBuffer(GL_UNIFORM_BUFFER, 0);
+}
+
+// Pack the current pass's constants into the shared UBO. Called once at the top
+// of each draw_scene (main view + every reflection face), replacing the dozens of
+// per-submesh glUniform calls (and the per-light string building) that set these.
+void RendererManager::upload_frame_ubo(const RenderContext &ctx)
+{
+	FrameStd140 f{};
+	f.view = ctx.view;
+	f.proj = ctx.proj;
+	const int n2d = std::min(ctx.num_shadow2_d, 6);
+	for (int i = 0; i < n2d; ++i)
+		f.light_space2_d[i] = ctx.light_space2_d[i];
+	f.clip_plane = ctx.clip_plane;
+	f.view_pos = ctx.camera_pos;
+	f.shadow_strength = ctx.shadow_strength;
+	f.refl_box_min = ctx.refl_box_min;
+	f.env_max_mip = ctx.env_max_mip;
+	f.fog_color = ctx.fog_color;
+	f.fog_density = ctx.fog_density;
+	f.screen_size = ctx.screen_size;
+	f.sky_intensity = ctx.sky_intensity;
+	f.time = ctx.time;
+	f.near_plane = ctx.near_plane;
+	f.far_plane = ctx.far_plane;
+	f.num_lights = ctx.num_lights;
+	f.has_sky = ctx.has_sky ? 1 : 0;
+	f.apply_gamma = ctx.apply_gamma ? 1 : 0;
+	f.apply_fog = ctx.apply_fog ? 1 : 0;
+
+	const int nl = std::min(ctx.num_lights, 8);
+	for (int i = 0; i < nl; ++i)
+	{
+		const GpuLight &g = ctx.lights[i];
+		LightStd140 &d = f.lights[i];
+		d.type = g.type;
+		d.color = g.color;
+		d.intensity = g.intensity;
+		d.position = g.position;
+		d.direction = g.direction;
+		d.range = g.range;
+		d.cos_inner = g.cos_inner;
+		d.cos_outer = g.cos_outer;
+		d.shadow2_d_index = g.shadow2_d_index;
+		d.shadow_cube_index = g.shadow_cube_index;
+	}
+
+	glBindBuffer(GL_UNIFORM_BUFFER, m_frame_ubo);
+	glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(FrameStd140), &f);
+	glBindBuffer(GL_UNIFORM_BUFFER, 0);
+}
+
 void RendererManager::draw_scene(const RenderContext &ctx, RendererComponent *skip, bool main_pass)
 {
+	upload_frame_ubo(ctx); // pass-constant data the lit shaders read via FrameBlock
 	// Frustum culling: skip renderers whose world AABB is outside this pass's view
 	// frustum. This is the main optimisation for heavy models (e.g. a 100-submesh
 	// car) -- in each reflection-cube face and shadow view only a fraction of the
@@ -1321,6 +1519,38 @@ void RendererManager::render_frame()
 		return;
 	}
 
+	// --- Profiler: set up this frame's query set and read back the results from
+	// when this same set was last used (two frames ago -> guaranteed ready, so the
+	// glGetQueryObject call never blocks the CPU on the GPU). ------------------
+	const int prof_idx = static_cast<int>(m_prof_frame & 1);
+	if (!m_prof_init)
+	{
+		glGenQueries(2 * PROF_COUNT, &m_prof_query[0][0]);
+		m_prof_init = true;
+	}
+	else if (m_prof_have[prof_idx])
+	{
+		for (int s = 0; s < PROF_COUNT; ++s)
+		{
+			GLuint64 ns = 0;
+			glGetQueryObjectui64v(m_prof_query[prof_idx][s], GL_QUERY_RESULT, &ns);
+			m_stage_time[s].gpu_ms = static_cast<double>(ns) / 1.0e6;
+		}
+	}
+	using prof_clock = std::chrono::high_resolution_clock;
+	// Time a pass: measure CPU wall-time around it and bracket its GL commands in a
+	// GL_TIME_ELAPSED query. Stages are sequential (never nested), so a single
+	// active timer-query target is fine.
+	auto run_stage = [&](int stage, auto &&body)
+	{
+		const auto t0 = prof_clock::now();
+		glBeginQuery(GL_TIME_ELAPSED, m_prof_query[prof_idx][stage]);
+		body();
+		glEndQuery(GL_TIME_ELAPSED);
+		m_stage_time[stage].cpu_ms =
+		    std::chrono::duration<double, std::milli>(prof_clock::now() - t0).count();
+	};
+
 	// Flatten the scene's lights into GPU form.
 	constexpr int k_max_lights = 8;
 	m_gpu_lights.clear();
@@ -1343,9 +1573,13 @@ void RendererManager::render_frame()
 	}
 
 	// Pass 1: render every light's shadow map (assigns per-light shadow indices).
-	render_shadow_maps();
+	run_stage(PROF_SHADOWS, [&] { render_shadow_maps(); });
 
-	// Build the sky/IBL environment cubemap (only re-renders if the sky changed).
+	// Pass 2: sky/IBL env cubemap + reflection captures, timed together under
+	// PROF_CAPTURES. The RenderContext is assembled between build_environment and
+	// the captures below; that work is CPU-only so it doesn't skew the GPU timer.
+	const auto prof_cap_t0 = prof_clock::now();
+	glBeginQuery(GL_TIME_ELAPSED, m_prof_query[prof_idx][PROF_CAPTURES]);
 	build_environment();
 
 	// Shared context (lights, shadows).
@@ -1411,26 +1645,66 @@ void RendererManager::render_frame()
 	capture_planar_reflections(ctx);
 	// Pass 2c: box reflections (one planar reflection per cube face).
 	capture_box_reflections(ctx);
+	glEndQuery(GL_TIME_ELAPSED);
+	m_stage_time[PROF_CAPTURES].cpu_ms =
+	    std::chrono::duration<double, std::milli>(prof_clock::now() - prof_cap_t0).count();
 
 	// Pass 3: main render into the HDR scene target (linear, no tonemap -- the
 	// post composite tonemaps once at the end).
-	ensure_post_targets(win.width(), win.height());
-	glBindFramebuffer(GL_FRAMEBUFFER, m_scene_fbo);
-	glViewport(0, 0, win.width(), win.height());
-	glClearColor(clear_color.r, clear_color.g, clear_color.b, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-	ctx.apply_gamma = false; // scene writes linear HDR; renderPost tonemaps
-	draw_scene(ctx, nullptr, /*mainPass=*/true);
+	run_stage(PROF_SCENE,
+	          [&]
+	          {
+		          ensure_post_targets(win.width(), win.height());
+		          glBindFramebuffer(GL_FRAMEBUFFER, m_scene_fbo);
+		          glViewport(0, 0, win.width(), win.height());
+		          glClearColor(clear_color.r, clear_color.g, clear_color.b, 1.0f);
+		          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+		          ctx.apply_gamma = false; // scene writes linear HDR; renderPost tonemaps
+		          draw_scene(ctx, nullptr, /*mainPass=*/true);
+	          });
 
-	// Pass 4: resolve MSAA + SSAO + bloom + tonemap, composited to the screen.
-	render_post(ctx);
+	// Pass 4-6: resolve MSAA + SSAO + bloom + tonemap to the screen, then the
+	// selection outline and optional collider wireframe overlay.
+	run_stage(PROF_POST,
+	          [&]
+	          {
+		          render_post(ctx);
+		          draw_selection_outline(ctx);
+		          if (show_colliders)
+			          draw_colliders(ctx);
+	          });
 
-	// Pass 5: outline the selected object on top of the finished (sRGB) image.
-	draw_selection_outline(ctx);
+	m_prof_have[prof_idx] = true; // this query set now holds valid results
+	++m_prof_frame;
 
-	// Pass 6: optional collider wireframe overlay.
-	if (show_colliders)
-		draw_colliders(ctx);
+	// Optional headless profiling: with CORFORGE_PROFILE set, dump the per-pass
+	// timings to stderr averaged over ~60 frames (smooths out per-frame noise).
+	static const bool prof_dump = std::getenv("CORFORGE_PROFILE") != nullptr;
+	if (prof_dump)
+	{
+		static StageTime acc[PROF_COUNT];
+		static int acc_n = 0;
+		for (int s = 0; s < PROF_COUNT; ++s)
+		{
+			acc[s].cpu_ms += m_stage_time[s].cpu_ms;
+			acc[s].gpu_ms += m_stage_time[s].gpu_ms;
+		}
+		if (++acc_n >= 60)
+		{
+			double gt = 0.0, ct = 0.0;
+			std::fprintf(stderr, "[profile]");
+			for (int s = 0; s < PROF_COUNT; ++s)
+			{
+				const double g = acc[s].gpu_ms / acc_n, c = acc[s].cpu_ms / acc_n;
+				gt += g;
+				ct += c;
+				std::fprintf(stderr, "  %s g=%.2f c=%.2f", stage_name(s), g, c);
+				acc[s] = StageTime{};
+			}
+			std::fprintf(stderr, "  | TOTAL g=%.2f c=%.2f\n", gt, ct);
+			acc_n = 0;
+		}
+	}
 }
 
 // Draw every registered collider as a green wireframe (sphere / box / plane),

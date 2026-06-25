@@ -1535,11 +1535,45 @@ void draw_debug_ui()
 	if (ImGui::Begin("Stats"))
 	{
 		ImGui::Text("%.1f FPS  (%.2f ms/frame)", io.Framerate, 1000.0f / io.Framerate);
+
+		// Per-pass GPU/CPU breakdown (timer queries, ~2 frames of latency). The
+		// totals tell us whether a scene is GPU- or CPU(render-thread)-bound, and
+		// which pass to attack first.
+		const RendererManager::StageTime *st = renderer.stage_times();
+		double gpu_total = 0.0, cpu_total = 0.0;
+		for (int s = 0; s < RendererManager::PROF_COUNT; ++s)
+		{
+			gpu_total += st[s].gpu_ms;
+			cpu_total += st[s].cpu_ms;
+		}
+		ImGui::Text("GPU %.2f ms   CPU(render) %.2f ms", gpu_total, cpu_total);
+		if (ImGui::BeginTable("prof", 3,
+		                      ImGuiTableFlags_Borders | ImGuiTableFlags_SizingFixedFit))
+		{
+			ImGui::TableSetupColumn("Pass");
+			ImGui::TableSetupColumn("GPU ms");
+			ImGui::TableSetupColumn("CPU ms");
+			ImGui::TableHeadersRow();
+			for (int s = 0; s < RendererManager::PROF_COUNT; ++s)
+			{
+				ImGui::TableNextRow();
+				ImGui::TableNextColumn();
+				ImGui::TextUnformatted(RendererManager::stage_name(s));
+				ImGui::TableNextColumn();
+				ImGui::Text("%.2f", st[s].gpu_ms);
+				ImGui::TableNextColumn();
+				ImGui::Text("%.2f", st[s].cpu_ms);
+			}
+			ImGui::EndTable();
+		}
 		ImGui::Separator();
 		ImGui::ColorEdit3("Clear color", &renderer.clear_color.x);
 		ImGui::SeparatorText("Shadows");
 		ImGui::DragFloat("Strength", &renderer.shadow_strength, 0.01f, 0.0f, 1.0f);
 		ImGui::DragFloat("Area", &renderer.shadow_ortho_size, 0.25f, 2.0f, 60.0f);
+		ImGui::Checkbox("Auto-skip when static", &renderer.shadows_auto_skip);
+		ImGui::SameLine();
+		ImGui::TextDisabled(renderer.shadows_updated_last() ? "(rendering)" : "(reusing)");
 
 		ImGui::SeparatorText("Post-processing");
 		auto &post = renderer.post;
