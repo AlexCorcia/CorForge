@@ -1099,6 +1099,12 @@ void RendererManager::init_post()
 	                                           CORFORGE_SHADER_DIR "/post_bright.frag");
 	m_composite_shader = std::make_shared<Shader>(CORFORGE_SHADER_DIR "/post.vert",
 	                                              CORFORGE_SHADER_DIR "/post_composite.frag");
+	m_fxaa_shader = std::make_shared<Shader>(CORFORGE_SHADER_DIR "/post.vert",
+	                                         CORFORGE_SHADER_DIR "/post_fxaa.frag");
+	m_dof_shader = std::make_shared<Shader>(CORFORGE_SHADER_DIR "/post.vert",
+	                                        CORFORGE_SHADER_DIR "/post_dof.frag");
+	m_ssr_shader = std::make_shared<Shader>(CORFORGE_SHADER_DIR "/post.vert",
+	                                        CORFORGE_SHADER_DIR "/post_ssr.frag");
 }
 
 void RendererManager::draw_fullscreen()
@@ -1197,10 +1203,12 @@ void RendererManager::draw_particles(const RenderContext &ctx)
 
 void RendererManager::ensure_post_targets(int w, int h)
 {
-	if (w == m_post_w && h == m_post_h && m_scene_fbo)
+	const int samples = std::max(1, post.msaa);
+	if (w == m_post_w && h == m_post_h && m_scene_fbo && samples == m_msaa_allocated)
 		return;
 	m_post_w = w;
 	m_post_h = h;
+	m_msaa_allocated = samples;
 	const int hw = std::max(1, w / 2), hh = std::max(1, h / 2);
 
 	auto make_tex = [](unsigned int &tex, GLint internal, int tw, int th, GLenum fmt, GLenum type)
@@ -1223,9 +1231,9 @@ void RendererManager::ensure_post_targets(int w, int h)
 	if (!m_scene_depth_ms)
 		glGenRenderbuffers(1, &m_scene_depth_ms);
 	glBindRenderbuffer(GL_RENDERBUFFER, m_scene_color_ms);
-	glRenderbufferStorageMultisample(GL_RENDERBUFFER, 4, GL_RGBA16F, w, h);
+	glRenderbufferStorageMultisample(GL_RENDERBUFFER, samples, GL_RGBA16F, w, h);
 	glBindRenderbuffer(GL_RENDERBUFFER, m_scene_depth_ms);
-	glRenderbufferStorageMultisample(GL_RENDERBUFFER, 4, GL_DEPTH24_STENCIL8, w, h);
+	glRenderbufferStorageMultisample(GL_RENDERBUFFER, samples, GL_DEPTH24_STENCIL8, w, h);
 	glBindFramebuffer(GL_FRAMEBUFFER, m_scene_fbo);
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER,
 	                          m_scene_color_ms);
@@ -1262,6 +1270,30 @@ void RendererManager::ensure_post_targets(int w, int h)
 		                       0);
 	}
 
+	// LDR target the composite renders into when FXAA is enabled (FXAA then reads
+	// it and writes the screen). RGBA8: the image is already tonemapped + gamma'd.
+	if (!m_ldr_fbo)
+		glGenFramebuffers(1, &m_ldr_fbo);
+	make_tex(m_ldr_tex, GL_RGBA8, w, h, GL_RGBA, GL_UNSIGNED_BYTE);
+	glBindFramebuffer(GL_FRAMEBUFFER, m_ldr_fbo);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_ldr_tex, 0);
+
+	// Depth-of-field target (HDR, before tonemap) -- composite reads it instead of
+	// the raw scene when DoF is on.
+	if (!m_dof_fbo)
+		glGenFramebuffers(1, &m_dof_fbo);
+	make_tex(m_dof_tex, GL_RGBA16F, w, h, GL_RGBA, GL_FLOAT);
+	glBindFramebuffer(GL_FRAMEBUFFER, m_dof_fbo);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_dof_tex, 0);
+
+	// SSR target (HDR): the reflection-enhanced scene that bloom/DoF/composite then
+	// treat as the scene base when SSR is on.
+	if (!m_ssr_fbo)
+		glGenFramebuffers(1, &m_ssr_fbo);
+	make_tex(m_ssr_tex, GL_RGBA16F, w, h, GL_RGBA, GL_FLOAT);
+	glBindFramebuffer(GL_FRAMEBUFFER, m_ssr_fbo);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_ssr_tex, 0);
+
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
@@ -1279,6 +1311,33 @@ void RendererManager::render_post(const RenderContext &ctx)
 
 	glDisable(GL_DEPTH_TEST);
 	glDisable(GL_BLEND);
+
+	// --- SSR: march the depth buffer to add reflections, producing the scene base
+	// that bloom / DoF / composite then build on. ---
+	unsigned int scene_base = m_scene_tex;
+	if (post.enabled && post.ssr)
+	{
+		glViewport(0, 0, w, h);
+		glBindFramebuffer(GL_FRAMEBUFFER, m_ssr_fbo);
+		m_ssr_shader->use();
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, m_scene_tex);
+		m_ssr_shader->set_int("uScene", 0);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, m_depth_tex);
+		m_ssr_shader->set_int("uDepth", 1);
+		m_ssr_shader->set_vec2("uTexel", glm::vec2(1.0f / (float)w, 1.0f / (float)h));
+		m_ssr_shader->set_mat4("uProj", ctx.proj);
+		m_ssr_shader->set_mat4("uInvProj", glm::inverse(ctx.proj));
+		m_ssr_shader->set_float("uNear", ctx.near_plane);
+		m_ssr_shader->set_float("uFar", ctx.far_plane);
+		m_ssr_shader->set_float("uIntensity", post.ssr_intensity);
+		m_ssr_shader->set_int("uMaxSteps", std::max(1, post.ssr_steps));
+		m_ssr_shader->set_float("uMaxDist", 30.0f);
+		m_ssr_shader->set_float("uThickness", 1.0f);
+		draw_fullscreen();
+		scene_base = m_ssr_tex;
+	}
 
 	const bool use_ao = post.enabled && post.ssao;
 	const bool use_bloom = post.enabled && post.bloom;
@@ -1321,7 +1380,7 @@ void RendererManager::render_post(const RenderContext &ctx)
 		glBindFramebuffer(GL_FRAMEBUFFER, m_bloom_fbo[0]);
 		m_bright_shader->use();
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, m_scene_tex);
+		glBindTexture(GL_TEXTURE_2D, scene_base);
 		m_bright_shader->set_int("uScene", 0);
 		m_bright_shader->set_float("uThreshold", post.bloom_threshold);
 		draw_fullscreen();
@@ -1345,12 +1404,39 @@ void RendererManager::render_post(const RenderContext &ctx)
 		bloom_final = src;
 	}
 
+	// --- Depth of field: CoC bokeh on the HDR scene, before tonemap. Composite
+	// then reads the DoF'd texture in place of the raw scene. ---
+	unsigned int scene_src = scene_base;
+	if (post.enabled && post.dof)
+	{
+		glViewport(0, 0, w, h);
+		glBindFramebuffer(GL_FRAMEBUFFER, m_dof_fbo);
+		m_dof_shader->use();
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, scene_base);
+		m_dof_shader->set_int("uScene", 0);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, m_depth_tex);
+		m_dof_shader->set_int("uDepth", 1);
+		m_dof_shader->set_vec2("uTexel", glm::vec2(1.0f / (float)w, 1.0f / (float)h));
+		m_dof_shader->set_float("uNear", ctx.near_plane);
+		m_dof_shader->set_float("uFar", ctx.far_plane);
+		m_dof_shader->set_float("uFocusDist", post.dof_focus);
+		m_dof_shader->set_float("uFocusRange", post.dof_range);
+		m_dof_shader->set_float("uMaxRadius", post.dof_radius);
+		draw_fullscreen();
+		scene_src = m_dof_tex;
+	}
+
 	// --- Composite: AO * scene + bloom, expose, ACES tonemap, gamma, vignette. ---
+	// With FXAA on, composite into an LDR texture and AA it to the screen after;
+	// otherwise composite straight to the default framebuffer.
+	const bool use_fxaa = post.enabled && post.fxaa;
 	glViewport(0, 0, w, h);
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, use_fxaa ? m_ldr_fbo : 0);
 	m_composite_shader->use();
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_scene_tex);
+	glBindTexture(GL_TEXTURE_2D, scene_src); // DoF output when enabled, else raw scene
 	m_composite_shader->set_int("uScene", 0);
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, use_bloom ? m_bloom_tex[bloom_final] : m_scene_tex);
@@ -1374,6 +1460,18 @@ void RendererManager::render_post(const RenderContext &ctx)
 	m_composite_shader->set_float("uExposure", post.exposure);
 	m_composite_shader->set_float("uVignette", post.vignette);
 	draw_fullscreen();
+
+	// --- FXAA: edge-AA the composited LDR image to the screen. ---
+	if (use_fxaa)
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		m_fxaa_shader->use();
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, m_ldr_tex);
+		m_fxaa_shader->set_int("uImage", 0);
+		m_fxaa_shader->set_vec2("uTexel", glm::vec2(1.0f / (float)w, 1.0f / (float)h));
+		draw_fullscreen();
+	}
 
 	glActiveTexture(GL_TEXTURE0);
 	glEnable(GL_DEPTH_TEST);
@@ -1627,6 +1725,9 @@ void RendererManager::render_frame()
 		{
 			ctx.refl_box_min = mn;
 			ctx.refl_box_max = mx;
+			m_scene_min = mn;
+			m_scene_max = mx;
+			m_scene_bounds_valid = true;
 		}
 	}
 

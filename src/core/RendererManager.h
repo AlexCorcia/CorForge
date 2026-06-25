@@ -109,6 +109,18 @@ public:
 	void set_main_camera(CameraComponent *cam) { m_main_camera = cam; }
 	CameraComponent *main_camera() const { return m_main_camera; }
 
+	// World-space bounding sphere of the scene's renderers (from last frame), used
+	// by the cinematic demo camera to frame whatever scene is loaded. False until a
+	// frame with geometry has been rendered.
+	bool scene_bounds(glm::vec3 &center, float &radius) const
+	{
+		if (!m_scene_bounds_valid)
+			return false;
+		center = (m_scene_min + m_scene_max) * 0.5f;
+		radius = glm::length(m_scene_max - m_scene_min) * 0.5f;
+		return radius > 1e-3f;
+	}
+
 	// Drawable bookkeeping.
 	void register_renderer(RendererComponent *r);
 	void unregister_renderer(RendererComponent *r);
@@ -188,6 +200,15 @@ public:
 		float ssao_bias = 0.025f;
 		float exposure = 1.0f;
 		float vignette = 0.25f;
+		bool fxaa = true; // post-process anti-aliasing (final LDR pass)
+		int msaa = 4;     // scene MSAA sample count (1 = off, 2, 4); lower = faster
+		bool dof = false;             // depth-of-field
+		float dof_focus = 12.0f;      // view-space distance kept sharp
+		float dof_range = 10.0f;      // ramp-to-full-blur distance
+		float dof_radius = 6.0f;      // max bokeh radius in pixels
+		bool ssr = false;             // screen-space reflections
+		float ssr_intensity = 0.6f;   // reflection strength
+		int ssr_steps = 32;           // ray-march steps (quality vs cost)
 		bool fog = false; // depth-based distance fog
 		glm::vec3 fog_color = {0.5f, 0.55f, 0.65f};
 		float fog_density = 0.03f;
@@ -289,9 +310,14 @@ private:
 	unsigned int m_ssao_fbo = 0, m_ssao_tex = 0;     // AO (RGBA8) + ping-pong blur
 	unsigned int m_ssao_fb_o2 = 0, m_ssao_tex2 = 0;
 	unsigned int m_bloom_fbo[2] = {0, 0}, m_bloom_tex[2] = {0, 0}; // half-res RGBA16F
+	unsigned int m_ldr_fbo = 0, m_ldr_tex = 0; // composite output when FXAA is on (RGBA8)
+	unsigned int m_dof_fbo = 0, m_dof_tex = 0; // depth-of-field output (RGBA16F HDR)
+	unsigned int m_ssr_fbo = 0, m_ssr_tex = 0; // screen-space reflections output (RGBA16F HDR)
 	int m_post_w = 0, m_post_h = 0;
+	int m_msaa_allocated = 0;  // sample count the scene targets were built with
 	unsigned int m_fs_vao = 0; // empty VAO for the fullscreen triangle
 	std::shared_ptr<Shader> m_ssao_shader, m_blur_shader, m_bright_shader, m_composite_shader;
+	std::shared_ptr<Shader> m_fxaa_shader, m_dof_shader, m_ssr_shader;
 	bool m_env_built = false; // dirty tracking for the env build
 	glm::vec3 m_env_zenith{0.0f}, m_env_horizon{0.0f}, m_env_ground{0.0f};
 	std::string m_env_image = "?";
@@ -335,6 +361,10 @@ private:
 	unsigned long long m_shadow_fp = 0;
 	bool m_shadow_valid = false;          // have the maps been rendered at least once?
 	bool m_shadows_updated_last = false;  // did we actually re-render them this frame?
+
+	// Last frame's world-space scene AABB (for the cinematic demo camera framing).
+	glm::vec3 m_scene_min{0.0f}, m_scene_max{0.0f};
+	bool m_scene_bounds_valid = false;
 
 	// Frame profiler state: two query sets ping-ponged by frame parity, so each
 	// set's results are read back two frames after they were issued (always ready).

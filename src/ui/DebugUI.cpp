@@ -1581,6 +1581,23 @@ void draw_debug_ui()
 		ImGui::BeginDisabled(!post.enabled);
 		ImGui::DragFloat("Exposure", &post.exposure, 0.01f, 0.1f, 4.0f);
 		ImGui::DragFloat("Vignette", &post.vignette, 0.01f, 0.0f, 1.0f);
+		ImGui::Checkbox("FXAA", &post.fxaa);
+		const char *msaa_labels[] = {"Off (1x)", "2x", "4x"};
+		const int msaa_vals[] = {1, 2, 4};
+		int msaa_idx = (post.msaa >= 4) ? 2 : (post.msaa >= 2 ? 1 : 0);
+		if (ImGui::Combo("MSAA", &msaa_idx, msaa_labels, 3))
+			post.msaa = msaa_vals[msaa_idx];
+		ImGui::Checkbox("Depth of field", &post.dof);
+		ImGui::BeginDisabled(!post.dof);
+		ImGui::DragFloat("DoF focus", &post.dof_focus, 0.1f, 0.5f, 100.0f);
+		ImGui::DragFloat("DoF range", &post.dof_range, 0.1f, 0.5f, 100.0f);
+		ImGui::DragFloat("DoF blur", &post.dof_radius, 0.1f, 0.0f, 24.0f);
+		ImGui::EndDisabled();
+		ImGui::Checkbox("SSR (reflections)", &post.ssr);
+		ImGui::BeginDisabled(!post.ssr);
+		ImGui::DragFloat("SSR intensity", &post.ssr_intensity, 0.01f, 0.0f, 2.0f);
+		ImGui::DragInt("SSR steps", &post.ssr_steps, 1.0f, 4, 128);
+		ImGui::EndDisabled();
 		ImGui::Checkbox("Fog", &post.fog);
 		ImGui::BeginDisabled(!post.fog);
 		ImGui::ColorEdit3("Fog color", &post.fog_color.x);
@@ -1790,6 +1807,36 @@ void draw_debug_ui()
 
 	if (scene_action)
 		scene_action();
+}
+
+void draw_stats_overlay()
+{
+	const ImGuiViewport *vp = ImGui::GetMainViewport();
+	const float pad = 12.0f;
+	const ImVec2 pos(vp->WorkPos.x + vp->WorkSize.x - pad, vp->WorkPos.y + pad);
+	ImGui::SetNextWindowPos(pos, ImGuiCond_Always, ImVec2(1.0f, 0.0f)); // anchor top-right
+	ImGui::SetNextWindowBgAlpha(0.45f);
+	const ImGuiWindowFlags flags =
+	    ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings |
+	    ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoInputs;
+	if (ImGui::Begin("##stats_overlay", nullptr, flags))
+	{
+		const ImGuiIO &io = ImGui::GetIO();
+		RendererManager &r = RendererManager::instance();
+		ImGui::Text("%.0f FPS  (%.2f ms)", io.Framerate, 1000.0f / io.Framerate);
+		const RendererManager::StageTime *st = r.stage_times();
+		double gpu = 0.0, cpu = 0.0;
+		for (int s = 0; s < RendererManager::PROF_COUNT; ++s)
+		{
+			gpu += st[s].gpu_ms;
+			cpu += st[s].cpu_ms;
+		}
+		ImGui::Text("GPU %.2f   CPU %.2f ms", gpu, cpu);
+		ImGui::Separator();
+		for (int s = 0; s < RendererManager::PROF_COUNT; ++s)
+			ImGui::Text("%-9s %5.2f ms", RendererManager::stage_name(s), st[s].gpu_ms);
+	}
+	ImGui::End();
 }
 
 } // namespace cf
